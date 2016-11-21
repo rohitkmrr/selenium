@@ -1,0 +1,276 @@
+<!-- ///////////////////////////////////        LOCAL COPY      ///////////////////////////////////////      -->
+<!DOCTYPE html>
+<html lang="en" data-nicescroll>
+<head>
+    <!-- Meta, title -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Z Labs">
+    <meta name="description" content="Banish user interface errors in mobile app screens, text and content">
+    <meta name="keywords" content="Mobile app design, App UI bug fix, Android screen capture, iOS screen capture, Optimize Micro Copying">
+    <title> Documentation </title>
+
+    <link rel=”canonical” href=”http://www.inapptext.com” />
+    
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway">
+
+    <!-- CSS -->
+    <link rel='stylesheet' href='css1/bootstrap.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='css1/shortcodes.css' type='text/css' media='all'/>
+    <link rel="stylesheet" href="http:///maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='css1/animate.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='css1/style.css' type='text/css' media='all'/>
+
+    <link rel='stylesheet' href='css1/styles1.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='css1/documentation.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='css1/skins/blue.css' type='text/css' media='all'/>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+    <!-- Favicons -->
+    <link href="ico/favicon.png" rel="shortcut icon">
+</head>
+<body ng-app="documentation">
+
+<!-- BEGIN MENU
+================================================== -->
+<div id="navigation" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <img class="visible-sm visible-xs" style="height:40px" src="images/inapptext_new_logo.png" alt="InAppText">
+                <img class="hidden-sm hidden-xs" style="height:60px" src="images/inapptext_new_logo.png" alt="InAppText">
+            </a>
+        </div>
+        <div class="navbar-collapse collapse pull-right" id="mainMenu">
+            <ul id="menu-main-menu" class="nav navbar-nav">
+                <li class="menu-item-has-children"><a href="documentation.html">Documentation</a></li>
+                <li><a href="http://blog.inapptext.com">Blog</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+       </div>
+    </div>
+</div>
+
+<!-- END MENU
+================================================== -->
+
+<!-- BEGIN CONTENT
+================================================== -->
+<div class="container">
+    <div ng-controller="selectTabs" id="content" class="col-md-12" style="background-color: #ffffff; padding-left: 30px; padding-right: 30px; margin-top:60px">
+          <div class="title-area" style="margin-top:60px;">
+            <h2  class="title">VIDEO TUTORIALS</h2>
+            <div class="page-content">
+              <p>Last Updated:17 NOV 2016</p>
+            </div>
+            <!--         ////////////    POPUP MODAL    /////////////////////                 -->
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+              <div class="modal-dialog" style="margin-right:auto; margin-bottom:0px; width:900px;padding-top:20px;">
+
+                <!-- Modal content-->
+                <div class="modal-content" style="height:600px;width:900px;">
+                  <div class="modal-header">
+                  <div ng-bind-html="title"> </div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div ng-bind-html="youtube" class="modal-body" style="height:550px;">
+                
+                    <p>Some text in the modal.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+<!--         ////////////    POPUP MODAL    /////////////////////                 -->
+            <div class="container">
+            <div class="search-bar col-md-12">
+                <div id="custom-search-input" class="col-md-12">
+                    <div class="input-group col-md-12">
+                        <input search_dir id="search_val" ng-model="searchVal" style="font-size:20px" type="text" class="form-control input-lg" placeholder="Search" />
+                        <span class="input-group-btn">
+                            <button id="search_button" ng-click="search_button()" class="btn btn-info btn-lg"  type="button">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="container" style="margin-bottom:50px;">
+            <div class="nav-bars tabs"> 
+                  <ul class="nav navbar-nav col-md-12" style="margin-top:30px; padding-right:0px;">
+                    <li ng-class="{'selected':give1}"  class="nav-item active col-md-4" >
+                      <a ng-click="showWebElements()" style="font-size:20px;background-color: white; " class="nav-link" href=""> Web </a>
+                    </li>
+                    <li ng-class="{'selected':give2}" class="nav-item col-md-4">
+                      <a ng-click="showiOSElements()" style="font-size:20px;background-color: white" class="nav-link" href=""> iOS </a>
+                    </li>
+                    <li ng-class="{'selected':give3}" class="nav-item col-md-4" style="padding-left:0;">
+                      <a ng-click="showAndroidElements()" style="font-size:20px;background-color: white; margin-left:15px;" class="nav-link" href="">Android</a>
+                    </li>
+                  </ul>
+            </div>
+            </div>
+            <div class=" row page-content" style="text-align: justify;"> 
+                  <div ng-show="showWeb" class="col-md-12 main_content web">
+                    <!-- <div id="i1" style="margin-bottom:72px;"></div> -->
+                    <div class="topic" ><h2 id="web" class="col-md-12"> Web </h2></div>
+                    <div >
+                    <div class="col-md-4 element" >
+                    <div > 
+                        <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link1,h1)" ng-bind="link1='BH37BKhW7Zs'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+                    </div>
+                    <div class="heading"  > Add a comment to a screenshot for web  </div>
+                    </div>
+                    <div class="col-md-4 element" >
+                        <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link2)" ng-bind="link2='QdAYtsnXmLs'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+<!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/QdAYtsnXmLs" frameborder="0" allowfullscreen></iframe>
+ -->                    <div class="heading "   > Add new app web </div>  
+                    </div>
+                    <div class="col-md-4 element" >
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link3)" ng-bind="link3='aJMVtEB_tR8'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+<!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/aJMVtEB_tR8" frameborder="0" allowfullscreen></iframe>
+ -->                    <div class="heading"  > Add multiple screenshots to InappText web </div>
+                    </div>
+                    </div>
+                    <div>
+                    <div class="col-md-4 element" >
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link4)" ng-bind="link4='C5RBHc1VKDE'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+<!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/C5RBHc1VKDE" frameborder="0" allowfullscreen></iframe>
+ -->                    <div class="heading" > Collaboration with your colleagues for web </div>
+                    </div>
+                    </div>
+                  </div>
+                  <div ng-show="show1" class="noResult hide" >
+                         No result found 
+                    </div>
+                  
+                  <div ng-show="showiOS" class="col-md-12 main_content ios" >
+                    <div class="topic"><h2  id="ios" class="col-md-12"> iOS </h2></div>
+                    <div >
+                    <div class="col-md-4 element" >
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link5)" ng-bind="link5='N4s5mkchMtk'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+<!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/N4s5mkchMtk" frameborder="0" allowfullscreen></iframe>
+ -->                    <div class="heading"> Record Video from MAC </div>
+                    </div>
+                    <div class="col-md-4 element" >
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link6)" ng-bind="link6='JjC4lSWzWVE'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+<!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/JjC4lSWzWVE" frameborder="0" allowfullscreen></iframe>
+ -->                    <div class="heading"> Automatic Capture screen for iOS </div>
+                    </div>
+                    <div class="col-md-4 element" >
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link7)" ng-bind="link7='rCcvGAThF1U'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+<!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/rCcvGAThF1U" frameborder="0" allowfullscreen></iframe>
+ -->                    <div class="heading" > Collabration with your colleague iOS </div>
+                    </div>
+                    </div>
+                    <div>
+                    <div class="col-md-4 element" >
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link8)" ng-bind="link8='kYMvpwuqMCg'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+<!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/kYMvpwuqMCg" frameborder="0" allowfullscreen></iframe>
+ -->                     <div class="heading"> Add multiple screenshots to InAppText app iOS  </div>
+                    </div>
+                    <div class="col-md-4 element" >
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link9)" ng-bind="link9='UlEACUUxA5o'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+<!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/UlEACUUxA5o" frameborder="0" allowfullscreen></iframe>
+ -->                    <div class="heading"> Add New App iOS </div>
+                    </div>
+                    <div class="col-md-4 element" >
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link10)" ng-bind="link10='cGc7ulcmSyw'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+<!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/cGc7ulcmSyw" frameborder="0" allowfullscreen></iframe>
+ -->                    <div class="heading"> Capture a screenshot in iOS Device and add a comment iOS </div>
+                    </div>
+                    </div>
+                    <div>
+                    <div class="col-md-4 element" >
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link11)" ng-bind="link11='YbwVvz4EHGI'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+<!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/YbwVvz4EHGI" frameborder="0" allowfullscreen></iframe>
+ -->                    <div class="heading"> Share the screen through Social media or Email iOS </div>
+                    </div>
+                    </div>
+                  </div>
+                  <div ng-show="show2" class="noResult hide" >
+                         No result found 
+                    </div>
+                    
+                  <div ng-show="showAndroid" class="col-md-12 main_content android" > 
+                    <div class="topic"><h2  id="android" class="col-md-12"> Android </h2></div>
+                    <div >
+                    <div class="col-md-4 element" >
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link12)" ng-bind="link12='pQsa2uQMiYo'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+<!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/pQsa2uQMiYo" frameborder="0" allowfullscreen></iframe>
+ -->                    <div class="heading" > Capture a screenshot or Record Video in Android and add a comment  </div>
+                    </div>
+                    <div class="col-md-4 element" >
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link13)" ng-bind="link13='NzO_1isHnN4'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+<!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/NzO_1isHnN4" frameborder="0" allowfullscreen></iframe>
+ -->                    <div class="heading" > Add New App Android </div>
+                    </div>
+                    <div class="col-md-4 element" >
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link14)" ng-bind="link14='cLGzgY0AZLY'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+<!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/cLGzgY0AZLY" frameborder="0" allowfullscreen></iframe>
+ -->                    <div class="heading" > Add multiple screenshots to InAppText app Android  </div>
+                    </div>
+                    </div>
+                    <div>
+                    <div class="col-md-4 element" >
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link15)" ng-bind="link15='r58eIPbGLyQ'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+<!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/r58eIPbGLyQ" frameborder="0" allowfullscreen></iframe>
+ -->                    <div class="heading" > Collaboration with your colleagues Android</div>
+                    </div>
+                    <div class="col-md-4 element" >
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link16)" ng-bind="link16='JcE7wA1Qv4A'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+<!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/JcE7wA1Qv4A" frameborder="0" allowfullscreen></iframe>
+ -->                    <div class="heading" > Share screen for Android   </div>
+                    </div>
+                    </div>
+                  </div>
+                 <div ng-show="show3" class="noResult hide">
+                         No result found 
+                    </div>
+            </div>
+          </div>
+    </div>
+</div>
+
+      <!-- BEGIN FOOTER
+================================================== -->
+<div class="atfoot">
+     <section class="nowidgetbottom" style="padding-top:0;">
+      <p id="back-top">
+        <a href="#top"><span><i class="fa fa-chevron-up"></i></span></a>
+      </p>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-sm-8 text-center"></div>
+          <div class="col-sm-2 text-center" >
+            <a href="privacy.html">Privacy Policy</a>
+          </div>
+          <div class="col-sm-2 text-center" >
+            <a href="tos.html">Terms of Service</a>
+          </div>
+        </div>
+
+      </div>
+    </section> 
+</div>
+    
+      <!-- END FOOTER
+================================================== -->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
+<script type='text/javascript' src='js/documentation.js'></script>
+<script type='text/javascript' src='js/documentation_angular.js'></script>
+<script type='text/javascript' src='js/easing.js'></script>
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js'></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
