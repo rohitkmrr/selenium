@@ -60,7 +60,7 @@
 ================================================== -->
 <div class="container">
     <div ng-controller="selectTabs" id="content" class="col-md-12" style="background-color: #ffffff; padding-left: 30px; padding-right: 30px; margin-top:60px">
-          <div class="title-area" style="margin-top:60px;">
+          <div class="title-area" style="margin-top:72px;">
             <h2  class="title">VIDEO TUTORIALS</h2>
             <div class="page-content">
               <p>Last Updated:17 NOV 2016</p>
@@ -72,9 +72,9 @@
 
                 <!-- Modal content-->
                 <div class="modal-content" style="height:600px;width:900px;">
-                  <div class="modal-header">
-                  <div ng-bind-html="title"> </div>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <div class="modal-header" style="padding-bottom:20px;">
+                  <div ng-bind-html="title" class="heading" style="width:800px;position:absolute"> </div>
+                   <div style="height:10px; width:10px; float:right;"> <button type="button" class="close" data-dismiss="modal">&times;</button></div>
                   </div>
                   <div ng-bind-html="youtube" class="modal-body" style="height:550px;">
                 
@@ -124,24 +124,24 @@
                     <div > 
                         <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link1,h1)" ng-bind="link1='BH37BKhW7Zs'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
                     </div>
-                    <div class="heading"  > Add a comment to a screenshot for web  </div>
+                    <div class="heading" ng-init="h1=' Add a comment to a screenshot for web '" ng-bind="h1" ></div>
                     </div>
                     <div class="col-md-4 element" >
-                        <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link2)" ng-bind="link2='QdAYtsnXmLs'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+                        <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link2,h2)" ng-bind="link2='QdAYtsnXmLs'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
 <!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/QdAYtsnXmLs" frameborder="0" allowfullscreen></iframe>
- -->                    <div class="heading "   > Add new app web </div>  
+ -->                    <div class="heading" ng-init="h2=' Add new app web '" ng-bind="h2"></div>  
                     </div>
                     <div class="col-md-4 element" >
-                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link3)" ng-bind="link3='aJMVtEB_tR8'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link3,h3)" ng-bind="link3='aJMVtEB_tR8'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
 <!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/aJMVtEB_tR8" frameborder="0" allowfullscreen></iframe>
- -->                    <div class="heading"  > Add multiple screenshots to InappText web </div>
+ -->                    <div class="heading" ng-init="h3=' Add multiple screenshots to InappText web '" ng-bind="h3" ></div>
                     </div>
                     </div>
                     <div>
                     <div class="col-md-4 element" >
-                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link4)" ng-bind="link4='C5RBHc1VKDE'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link4,h4)" ng-bind="link4='C5RBHc1VKDE'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
 <!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/C5RBHc1VKDE" frameborder="0" allowfullscreen></iframe>
- -->                    <div class="heading" > Collaboration with your colleagues for web </div>
+ -->                    <div class="heading" ng-init="h4=' Collaboration with your colleagues for web '" ng-bind="h4" ></div>
                     </div>
                     </div>
                   </div>
@@ -153,43 +153,43 @@
                     <div class="topic"><h2  id="ios" class="col-md-12"> iOS </h2></div>
                     <div >
                     <div class="col-md-4 element" >
-                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link5)" ng-bind="link5='N4s5mkchMtk'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link5,h5)" ng-bind="link5='N4s5mkchMtk'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
 <!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/N4s5mkchMtk" frameborder="0" allowfullscreen></iframe>
- -->                    <div class="heading"> Record Video from MAC </div>
+ -->                    <div class="heading" ng-init="h5=' Record Video from MAC '" ng-bind="h5"></div>
                     </div>
                     <div class="col-md-4 element" >
-                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link6)" ng-bind="link6='JjC4lSWzWVE'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link6,h6)" ng-bind="link6='JjC4lSWzWVE'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
 <!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/JjC4lSWzWVE" frameborder="0" allowfullscreen></iframe>
- -->                    <div class="heading"> Automatic Capture screen for iOS </div>
+ -->                    <div class="heading" ng-init="h6=' Automatic Capture screen for iOS '" ng-bind="h6"></div>
                     </div>
                     <div class="col-md-4 element" >
-                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link7)" ng-bind="link7='rCcvGAThF1U'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link7,h7)" ng-bind="link7='rCcvGAThF1U'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
 <!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/rCcvGAThF1U" frameborder="0" allowfullscreen></iframe>
- -->                    <div class="heading" > Collabration with your colleague iOS </div>
+ -->                    <div class="heading" ng-init="h7=' Collabration with your colleague iOS '" ng-bind="h7"></div>
                     </div>
                     </div>
                     <div>
                     <div class="col-md-4 element" >
-                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link8)" ng-bind="link8='kYMvpwuqMCg'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link8,h8)" ng-bind="link8='kYMvpwuqMCg'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
 <!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/kYMvpwuqMCg" frameborder="0" allowfullscreen></iframe>
- -->                     <div class="heading"> Add multiple screenshots to InAppText app iOS  </div>
+ -->                     <div class="heading" ng-init="h8=' Add multiple screenshots to InAppText app iOS '" ng-bind="h8"></div>
                     </div>
                     <div class="col-md-4 element" >
-                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link9)" ng-bind="link9='UlEACUUxA5o'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link9,h9)" ng-bind="link9='UlEACUUxA5o'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
 <!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/UlEACUUxA5o" frameborder="0" allowfullscreen></iframe>
- -->                    <div class="heading"> Add New App iOS </div>
+ -->                    <div class="heading" ng-init="h9=' Add New App iOS '" ng-bind="h9"></div>
                     </div>
                     <div class="col-md-4 element" >
-                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link10)" ng-bind="link10='cGc7ulcmSyw'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link10,h10)" ng-bind="link10='cGc7ulcmSyw'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
 <!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/cGc7ulcmSyw" frameborder="0" allowfullscreen></iframe>
- -->                    <div class="heading"> Capture a screenshot in iOS Device and add a comment iOS </div>
+ -->                    <div class="heading" ng-init="h10=' Capture a screenshot in iOS Device and add a comment iOS '" ng-bind="h10"></div>
                     </div>
                     </div>
                     <div>
                     <div class="col-md-4 element" >
-                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link11)" ng-bind="link11='YbwVvz4EHGI'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link11,h11)" ng-bind="link11='YbwVvz4EHGI'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
 <!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/YbwVvz4EHGI" frameborder="0" allowfullscreen></iframe>
- -->                    <div class="heading"> Share the screen through Social media or Email iOS </div>
+ -->                    <div class="heading" ng-init="h11=' Share the screen through Social media or Email iOS '" ng-bind="h11"></div>
                     </div>
                     </div>
                   </div>
@@ -201,31 +201,31 @@
                     <div class="topic"><h2  id="android" class="col-md-12"> Android </h2></div>
                     <div >
                     <div class="col-md-4 element" >
-                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link12)" ng-bind="link12='pQsa2uQMiYo'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link12,h12)" ng-bind="link12='pQsa2uQMiYo'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
 <!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/pQsa2uQMiYo" frameborder="0" allowfullscreen></iframe>
- -->                    <div class="heading" > Capture a screenshot or Record Video in Android and add a comment  </div>
+ -->                    <div class="heading" ng-init="h12=' Capture a screenshot or Record Video in Android and add a comment '" ng-bind="h12"></div>
                     </div>
                     <div class="col-md-4 element" >
-                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link13)" ng-bind="link13='NzO_1isHnN4'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link13,h13)" ng-bind="link13='NzO_1isHnN4'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
 <!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/NzO_1isHnN4" frameborder="0" allowfullscreen></iframe>
- -->                    <div class="heading" > Add New App Android </div>
+ -->                    <div class="heading" ng-init="h13=' Add New App Android '" ng-bind="h13"></div>
                     </div>
                     <div class="col-md-4 element" >
-                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link14)" ng-bind="link14='cLGzgY0AZLY'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link14,h14)" ng-bind="link14='cLGzgY0AZLY'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
 <!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/cLGzgY0AZLY" frameborder="0" allowfullscreen></iframe>
- -->                    <div class="heading" > Add multiple screenshots to InAppText app Android  </div>
+ -->                    <div class="heading" ng-init="h14=' Add multiple screenshots to InAppText app Android '" ng-bind="h14"></div>
                     </div>
                     </div>
                     <div>
                     <div class="col-md-4 element" >
-                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link15)" ng-bind="link15='r58eIPbGLyQ'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link15,h15)" ng-bind="link15='r58eIPbGLyQ'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
 <!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/r58eIPbGLyQ" frameborder="0" allowfullscreen></iframe>
- -->                    <div class="heading" > Collaboration with your colleagues Android</div>
+ -->                    <div class="heading" ng-init="h15=' Collaboration with your colleagues Android '" ng-bind="h15"></div>
                     </div>
                     <div class="col-md-4 element" >
-                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link16)" ng-bind="link16='JcE7wA1Qv4A'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
+                    <img data-toggle="modal" data-target="#myModal" ng-click="showModal(link16,h16)" ng-bind="link16='JcE7wA1Qv4A'" src="http://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com">
 <!--                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/JcE7wA1Qv4A" frameborder="0" allowfullscreen></iframe>
- -->                    <div class="heading" > Share screen for Android   </div>
+ -->                    <div class="heading" ng-init="h16=' Share screen for Android '" ng-bind="h16"></div>
                     </div>
                     </div>
                   </div>
