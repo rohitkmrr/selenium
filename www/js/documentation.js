@@ -56,32 +56,3 @@ $("#search_val").keyup(function() {
      });
 
 }); 
-
-
-// var ik_player;
-
-// //this function is called by the API
-// function onYouTubeIframeAPIReady() {
-//   //creates the player object
-//   ik_player = new YT.Player('ik_player_iframe');
-       
-//   console.log('Video API is loaded');
-//   console.log(ik_player);
-
-//   //subscribe to events
-//   ik_player.addEventListener("onReady",       "onYouTubePlayerReady");
-//   ik_player.addEventListener("onStateChange", "onYouTubePlayerStateChange");
-//   console.log('Video API is loaded and reached here');
-// }
-
-// function onYouTubePlayerReady() {
-//   console.log('Video is ready to play');
-// }
-
-// function onYouTubePlayerStateChange(event) {
-//   console.log('Video state changed');
-// }
-
-// $('.ytp-large-play-button ytp-button').click(function() {
-//     alert("show message");
-// });

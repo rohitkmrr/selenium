@@ -1,14 +1,7 @@
 var app= angular.module('documentation',['ngSanitize' ] );
 
 app.controller('selectTabs',['$scope', '$sce', function($scope ,$sce) {
-
-    // $scope.modal_template1 =' <iframe id="ik_player_iframe" width="100%" height="100%" src="https://www.youtube.com/embed/BH37BKhW7Zs" frameborder="0" allowfullscreen></iframe>';
-    $scope.modal_template =' <div> rgfhbec </div>';
-    $scope.t1=' <div> my modal_template  </div>';  
-
-    $scope.a = $sce.trustAsHtml('<iframe id="ik_player_iframe" width="100%" height="100%" src="https://www.youtube.com/embed/BH37BKhW7Zs" frameborder="0" allowfullscreen></iframe>');
-
-
+ 
     $scope.show1=true;
     $scope.show2=false;
     $scope.show3=false;
@@ -62,21 +55,6 @@ app.controller('selectTabs',['$scope', '$sce', function($scope ,$sce) {
             $scope.show3=true;
         }
     };
-
-//     $scope.showPopup = false;
-//     // $scope.popup = function() {
-//     //     $scope.showPopup = true;
-//     // };
-
-//     window.popup=function(){
-//   /* have access to $scope here*/
-//     $scope.showPopup = true;
-// }
-    // var BASE_URL = "https://www.youtube.com/embed/";
-    // $scope.video_id = BASE_URL + "BH37BKhW7Zs";
-    // $scope.getVideoUrl = function() {
-    //     return $scope.video_id;
-    // }
     var BASE_URL = 'https://www.youtube.com/embed/';
     $scope.showModal= function (video_id,heading) {
         $scope.link= BASE_URL+video_id;
@@ -84,36 +62,5 @@ app.controller('selectTabs',['$scope', '$sce', function($scope ,$sce) {
         $scope.title=heading;
         console.log($scope.title);
     };
-
-////////////////////////////////////////////////////////////////    modal  //////////////////
-    // $scope.status = '  ';
-    // $scope.customFullscreen = false;
-    // $scope.showAdvanced = function(ev) {
-    // $mdDialog.show({
-    //   controller: DialogController,
-    //   templateUrl: 'dialog1.tmpl.html',
-    //   parent: angular.element(document.body),
-    //   targetEvent: ev,
-    //   clickOutsideToClose:true,
-    //   fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
-    // })
-   
-    // };
-
- 
-    // function DialogController($scope, $mdDialog) {
-    //     $scope.hide = function() {
-    //       $mdDialog.hide();
-    //     };
-
-    //     $scope.cancel = function() {
-    //       $mdDialog.cancel();
-    //     };
-
-    //     $scope.answer = function(answer) {
-    //       $mdDialog.hide(answer);
-    //     };
-    // }
-////////////////////////////////////////////////////////////////////
 
 }]);
