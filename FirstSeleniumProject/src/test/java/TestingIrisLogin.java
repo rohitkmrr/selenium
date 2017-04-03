@@ -48,7 +48,8 @@ public class TestingIrisLogin {
         loginButton.click();
 
         // if already logged In
-        Thread.sleep(1000);
+        // // TODO: 31/3/17  
+        Thread.sleep(2000);
         if(driver.findElements(By.xpath("//h4[@id=\"modal_already-logged-in_label\"]/strong")).size() >0){
             System.out.println("Continuing to already login");
             driver.findElement(By.xpath("//div[@id=\"modal_already-logged-in\"]/div/div/div[@class=\"modal-footer\"]/button[@class=\"btn btn-default\"]")).click();
