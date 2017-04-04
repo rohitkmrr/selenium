@@ -38,6 +38,8 @@ public class makeNewClient2 {
         password.sendKeys("sudhir12");
         WebElement loginButton = driver.findElement(By.id("buttonLogin"));
         loginButton.click();
+        List<JavaScriptError> jsErrors = JavaScriptError.readErrors(driver);
+        printErrors(jsErrors);
 
         // if already logged In
         // // TODO: 31/3/17
@@ -71,7 +73,7 @@ public class makeNewClient2 {
         driver.findElement(By.xpath("//ul[@id=\"accountsMenu\"]/li[2]/a")).click();
         Thread.sleep(1000);
 
-        // TODO: 30/3/17 test cases for forms here
+        // TODO:  test cases for forms here
         driver.findElement(By.id("newClient")).click();
         driver.findElement(By.id("email")).clear();
         driver.findElement(By.id("email")).sendKeys("dddddddddd");
@@ -88,6 +90,8 @@ public class makeNewClient2 {
         driver.findElement(By.xpath("//div[@id='programSelection']/div/span/span/span")).click();
         Thread.sleep(3000);
         driver.findElement(By.xpath("//div[19]/div/ul/li[10]")).click();
+        List<JavaScriptError> jsErrors = JavaScriptError.readErrors(driver);
+        printErrors(jsErrors);
         driver.findElement(By.xpath("(//button[@type='button'])[30]")).click();
         new Select(driver.findElement(By.xpath("//div[@id='collapse_2']/div/div[2]/div/div/select"))).selectByVisibleText("Yes");
         driver.findElement(By.xpath("(//option[@value='0'])[6]")).click();
@@ -103,17 +107,12 @@ public class makeNewClient2 {
         Thread.sleep(3000);
         driver.findElement(By.xpath("(//button[@type='button'])[30]")).click();
         Thread.sleep(3000);
-
+        List<JavaScriptError> jsErrors2 = JavaScriptError.readErrors(driver);
+        printErrors(jsErrors2);
         //logout
         logout();
-        final List<JavaScriptError> jsErrors = JavaScriptError.readErrors(driver);
-        System.out.println("Errors are " + jsErrors.size());
-        for(int i=0; i<jsErrors.size();i++) {
-            System.out.println(jsErrors.get(i).getErrorMessage());
-            System.out.println("Error Line: "+ jsErrors.get(i).getLineNumber());
-            System.out.println(jsErrors.get(i).getSourceName());
-            System.out.println("\n");
-        }
+        List<JavaScriptError> jsErrors1 = JavaScriptError.readErrors(driver);
+        printErrors(jsErrors1);
 
         //close the browser
         driver.close();
@@ -129,4 +128,16 @@ public class makeNewClient2 {
         driver.findElement(By.xpath("//div[@id=\"modalLogoutConfirmation\"]/div/div/div[@class=\"modal-footer\"]/button")).click();
 
     }
+
+    public void printErrors(List<JavaScriptError> jsErrors) {
+        System.out.println("Errors are " + jsErrors.size());
+        for(int i=0; i<jsErrors.size();i++) {
+            System.out.println(jsErrors.get(i).getErrorMessage());
+            System.out.println("Error Line: "+ jsErrors.get(i).getLineNumber());
+            System.out.println(jsErrors.get(i).getSourceName());
+            System.out.println("\n");
+        }
+    }
+
 }
+

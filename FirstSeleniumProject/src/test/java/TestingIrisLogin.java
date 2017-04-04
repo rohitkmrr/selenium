@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by rohit on 30/3/17.
  */
@@ -20,7 +22,7 @@ public class TestingIrisLogin {
         // select Administration from dropdown
         driver.findElement(By.xpath("//div[@class=\"dropdown\"]/div/button")).click();
         driver.findElement(By.xpath("//ul[@id=\"accountsMenu\"]/li[4]/a")).click();
-        Thread.sleep(1000);
+//        Thread.sleep(1000);
 
         // TODO: 30/3/17 test cases for forms here 
 
@@ -37,6 +39,8 @@ public class TestingIrisLogin {
         // launch firefox
         System.setProperty("webdriver.firefox.marionette", driverPath);
         driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
+
         driver.get(baseUrl);
 
         // login username and password
@@ -49,22 +53,22 @@ public class TestingIrisLogin {
 
         // if already logged In
         // // TODO: 31/3/17  
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
         if(driver.findElements(By.xpath("//h4[@id=\"modal_already-logged-in_label\"]/strong")).size() >0){
             System.out.println("Continuing to already login");
             driver.findElement(By.xpath("//div[@id=\"modal_already-logged-in\"]/div/div/div[@class=\"modal-footer\"]/button[@class=\"btn btn-default\"]")).click();
         }
 
         // if verify your identity modal appear
-        Thread.sleep(1000);
+//        Thread.sleep(1000);
         driver.findElement(By.xpath("//div[@class=\"modal-footer\"]/button[@id=\"pin-process_submit\"]")).click();
 
         // enter random pin 
-        Thread.sleep(1000);
+//        Thread.sleep(1000);
         driver.findElement(By.id("pin-verify_pin")).sendKeys("12345");
-        Thread.sleep(500);
+//        Thread.sleep(500);
         driver.findElement(By.id("pin-verify_submit")).click();
-        Thread.sleep(1000);
+//        Thread.sleep(1000);
 
     }
 
@@ -72,7 +76,7 @@ public class TestingIrisLogin {
         System.out.println("Logging out");
         driver.findElement(By.xpath("//div[@class=\"dropdown open hover\"]/div/button")).click();
         driver.findElement(By.xpath("//ul[@id=\"accountsMenu\"]/li[8]/a")).click();
-        Thread.sleep(1000);
+//        Thread.sleep(1000);
         driver.findElement(By.xpath("//div[@id=\"modalLogoutConfirmation\"]/div/div/div[@class=\"modal-footer\"]/button")).click();
 
     }
