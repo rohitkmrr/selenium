@@ -55,7 +55,7 @@ public class TestForIrisLocal1 {
         driver.findElement(By.id("pin-verify_submit")).click();
     }
 
-    @Test
+    @Test(priority = 0)
     public void testCaseManagerEncounter1() throws Exception {
         driver.findElement(By.xpath("//div[@class=\"dropdown\"]/div/button")).click();
         driver.findElement(By.linkText("Case Management")).click();
@@ -70,9 +70,24 @@ public class TestForIrisLocal1 {
         driver.findElement(By.xpath("//div[@class=\"encModalFooter modal-footer  encFooter ng-scope\"]/button[3]")).click();
     }
 
+    @Test(priority = 1)
+    public void testCaseManagerEncounter2() throws Exception {
+        driver.findElement(By.xpath("//div[@class=\"dropdown\"]/div/button")).click();
+        driver.findElement(By.linkText("Case Management")).click();
+        assertEquals(driver.getTitle(), "Case Manager Dashboard");
+        driver.findElement(By.cssSelector("span > span.ng-binding")).click();
+        driver.findElement(By.linkText("New Encounter")).click();
+       /* new Select(driver.findElement(By.xpath("//div[@id=\"encounterMainDiv\"]/div/div/div[2]/div[2]/div/select"))).selectByVisibleText("service");
+        driver.findElement(By.xpath("//div[@id=\"encounterMainDiv\"]/div/div/div[5]/div[2]/spin-edit/div/input")).clear();
+        driver.findElement(By.xpath("//div[@id=\"encounterMainDiv\"]/div/div/div[5]/div[2]/spin-edit/div/input")).sendKeys("23");
+        driver.findElement(By.xpath("//div[@id=\"encounterMainDiv\"]/div/div/div[6]/div/div/textarea")).clear();
+        driver.findElement(By.xpath("//div[@id=\"encounterMainDiv\"]/div/div/div[6]/div/div/textarea")).sendKeys("DFGFGJ");
+        driver.findElement(By.xpath("//div[@class=\"encModalFooter modal-footer  encFooter ng-scope\"]/button[3]")).click();*/
+    }
+
     @AfterClass(alwaysRun = true)
     public void tearDown() throws Exception {
-//        driver.quit();
+        driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
             fail(verificationErrorString);

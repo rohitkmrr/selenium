@@ -6,7 +6,11 @@
 
     <groupId>my FirstSeleniumTest</groupId>
     <artifactId>my FirstSeleniumTest</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>SeleniumSuit</module>
+    </modules>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
