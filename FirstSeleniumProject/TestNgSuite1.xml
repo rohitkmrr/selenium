@@ -10,4 +10,24 @@
             <class name="Test2" />
         </classes>
     </test>
+    <test name="Test three" >
+        <classes>
+            <class name="PrintEncounter" />
+        </classes>
+    </test>
+    <test name="Test four" >
+        <classes>
+            <class name="MeasureComponent" />
+        </classes>
+    </test>
+    <test name="Test five" >
+        <classes>
+            <class name="VerifyEncounterCancel" />
+        </classes>
+    </test>
+    <test name="Test six" >
+        <classes>
+            <class name="VerifyEncounterDraft" />
+        </classes>
+    </test>
 </suite>

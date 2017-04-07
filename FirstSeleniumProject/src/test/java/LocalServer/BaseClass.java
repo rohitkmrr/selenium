@@ -1,16 +1,20 @@
+package LocalServer;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
 
 /**
- * Created by zemoso on 4/4/17.
+ * Created by zemoso on 6/4/17.
  */
-public class CommonClass {
-    public String baseUrl = "http://localhost:8080/phhs";
+public class BaseClass {
+    public String baseUrl = "http://192.168.86.24:8080/phhs";
     private StringBuffer verificationErrors = new StringBuffer();
     String driverPath = "/home/zemoso/geckodriver.exe";
     protected static WebDriver driver;
@@ -30,9 +34,9 @@ public class CommonClass {
 
         // login username and password
         WebElement userName = driver.findElement(By.id("username"));
-        userName.sendKeys("sudhir");
+        userName.sendKeys("sreekanth");
         WebElement password = driver.findElement(By.id("pWord"));
-        password.sendKeys("sudhir12");
+        password.sendKeys("sreekanth12");
         WebElement loginButton = driver.findElement(By.id("buttonLogin"));
         loginButton.click();
 
@@ -49,7 +53,25 @@ public class CommonClass {
         driver.findElement(By.id("pin-verify_pin")).sendKeys("12345");
         driver.findElement(By.id("pin-verify_submit")).click();
         driver.findElement(By.xpath("//div[@class=\"dropdown\"]/div/button")).click();
+        driver.findElement(By.linkText("Administration")).click();
+    }
+
+    public  void createEncounter() {
+        driver.findElement(By.xpath("//div[@class=\"dropdown open hover\"]/div/button")).click();
+        //goto case manager
         driver.findElement(By.linkText("Case Management")).click();
+        assertEquals(driver.getTitle(), "Case Manager Dashboard");
+        // select program and client
+        driver.findElement(By.cssSelector("span.k-input.ng-scope")).click();
+        driver.findElement(By.xpath("//ul[@id='programFilterId_listbox']/li[7]")).click();
+        driver.findElement(By.cssSelector("a[title=\"client, social  \"] > span > span.ng-binding")).click();
+        // make new encounter
+        driver.findElement(By.linkText("New Encounter")).click();
+        new Select(driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div/div/select"))).selectByVisibleText("Food Coupons");
+        new Select(driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div[2]/div/select"))).selectByVisibleText("s9");
+        driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[5]/div[2]/spin-edit/div/input")).clear();
+        driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[5]/div[2]/spin-edit/div/input")).sendKeys("1");
+        driver.findElement(By.xpath("(//button[@class='btn btn-default ar pull-right'])")).click();
     }
 
     @AfterSuite

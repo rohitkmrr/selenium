@@ -1,6 +1,5 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -8,28 +7,29 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 /**
- * Created by zemoso on 4/4/17.
+ * Created by zemoso on 5/4/17.
  */
-public class Test2 extends CommonClass {
+public class PrintEncounter extends CommonClass {
+
     @BeforeClass
-    public void gotoCaseManagement() throws InterruptedException {
+    public void gotoCaseManagement() {
         WebDriver driver = getDriverInstance();
         driver.findElement(By.xpath("//div[@class=\"dropdown open hover\"]/div/button")).click();
         driver.findElement(By.linkText("Case Management")).click();
         assertEquals(driver.getTitle(), "Case Manager Dashboard");
+
+        // make a new encounter
     }
 
     @Test
-    public void testCaseManagerEncounter2() throws Exception {
-        driver.findElement(By.cssSelector("span > span.ng-binding")).click();
-        driver.findElement(By.linkText("New Encounter")).click();
-        new Select(driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div/div/select"))).selectByVisibleText("7124 test");
+    public void testPrintEncounter() throws Exception {
+        driver.findElement(By.xpath("//table[@id='clientListTable']/tbody/tr/td/a/span/span[3]")).click();
+        driver.findElement(By.id("printEncNotes")).click();
     }
 
     @AfterClass
     public void returnToCaseManagement() throws InterruptedException {
-        driver.findElement(By.xpath("//div[@class=\"encModalFooter modal-footer  encFooter ng-scope\"]/button[3]")).click();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         driver.findElement(By.xpath("//div[@class=\"dropdown open hover\"]/div/button")).click();
         driver.findElement(By.linkText("Case Management")).click();
     }

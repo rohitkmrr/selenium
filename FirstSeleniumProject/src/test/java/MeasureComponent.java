@@ -8,9 +8,9 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 /**
- * Created by zemoso on 4/4/17.
+ * Created by zemoso on 5/4/17.
  */
-public class Test1 extends CommonClass{
+public class MeasureComponent extends CommonClass{
 
     @BeforeClass
     public void gotoCaseManagement() {
@@ -21,23 +21,22 @@ public class Test1 extends CommonClass{
     }
 
     @Test
-    public void testCaseManagerEncounter1() throws Exception {
-        driver.findElement(By.cssSelector("span > span.ng-binding")).click();
+    public void testMeasureComponent() throws Exception {
+        driver.findElement(By.xpath("//table[@id='clientListTable']/tbody/tr/td/a/span/span[3]")).click();
         driver.findElement(By.linkText("New Encounter")).click();
         new Select(driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div/div/select"))).selectByVisibleText("7124 test");
-        new Select(driver.findElement(By.xpath("//div[@id=\"encounterMainDiv\"]/div/div/div[2]/div[2]/div/select"))).selectByVisibleText("service");
-        driver.findElement(By.xpath("//div[@id=\"encounterMainDiv\"]/div/div/div[5]/div[2]/spin-edit/div/input")).clear();
-        driver.findElement(By.xpath("//div[@id=\"encounterMainDiv\"]/div/div/div[5]/div[2]/spin-edit/div/input")).sendKeys("23");
-        driver.findElement(By.xpath("//div[@id=\"encounterMainDiv\"]/div/div/div[6]/div/div/textarea")).clear();
-        driver.findElement(By.xpath("//div[@id=\"encounterMainDiv\"]/div/div/div[6]/div/div/textarea")).sendKeys("DFGFGJ");
-        driver.findElement(By.xpath("//div[@class=\"encModalFooter modal-footer  encFooter ng-scope\"]/button[3]")).click();
+        new Select(driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div[2]/div/select"))).selectByVisibleText("S2");
+        Thread.sleep(2000);
+        assertEquals(driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[5]/div[2]/spin-edit/div/input")).getAttribute("value"), "01");
     }
 
     @AfterClass
     public void returnToCaseManagement() throws InterruptedException {
-        Thread.sleep(3000);
+        driver.findElement(By.xpath("//div[3]/button[3]")).click();
+        Thread.sleep(5000);
         driver.findElement(By.xpath("//div[@class=\"dropdown open hover\"]/div/button")).click();
         driver.findElement(By.linkText("Case Management")).click();
     }
+
 
 }

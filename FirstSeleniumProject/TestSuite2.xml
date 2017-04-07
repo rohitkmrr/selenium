@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite 1" >
+    <test name="Test One" >
+        <classes>
+            <class name="LocalServer.TestCheckBox" />
+        </classes>
+    </test>
+    <test name="Test two" >
+        <classes>
+            <class name="LocalServer.CheckIncrement" />
+        </classes>
+    </test>
+    <test name="Test three" >
+        <classes>
+            <class name="LocalServer.ViewResources" />
+        </classes>
+    </test>
+    <test name="Test four" >
+        <classes>
+            <class name="LocalServer.VerifyEncounterPrint" />
+        </classes>
+    </test>
+</suite>

@@ -8,10 +8,9 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 /**
- * Created by zemoso on 4/4/17.
+ * Created by zemoso on 5/4/17.
  */
-public class Test1 extends CommonClass{
-
+public class VerifyEncounterCancel extends CommonClass {
     @BeforeClass
     public void gotoCaseManagement() {
         WebDriver driver = getDriverInstance();
@@ -21,23 +20,25 @@ public class Test1 extends CommonClass{
     }
 
     @Test
-    public void testCaseManagerEncounter1() throws Exception {
-        driver.findElement(By.cssSelector("span > span.ng-binding")).click();
+    public void testVerifyEncounter() throws Exception {
+        driver.findElement(By.xpath("//table[@id='clientListTable']/tbody/tr/td/a/span/span[3]")).click();
         driver.findElement(By.linkText("New Encounter")).click();
         new Select(driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div/div/select"))).selectByVisibleText("7124 test");
-        new Select(driver.findElement(By.xpath("//div[@id=\"encounterMainDiv\"]/div/div/div[2]/div[2]/div/select"))).selectByVisibleText("service");
-        driver.findElement(By.xpath("//div[@id=\"encounterMainDiv\"]/div/div/div[5]/div[2]/spin-edit/div/input")).clear();
-        driver.findElement(By.xpath("//div[@id=\"encounterMainDiv\"]/div/div/div[5]/div[2]/spin-edit/div/input")).sendKeys("23");
-        driver.findElement(By.xpath("//div[@id=\"encounterMainDiv\"]/div/div/div[6]/div/div/textarea")).clear();
-        driver.findElement(By.xpath("//div[@id=\"encounterMainDiv\"]/div/div/div[6]/div/div/textarea")).sendKeys("DFGFGJ");
-        driver.findElement(By.xpath("//div[@class=\"encModalFooter modal-footer  encFooter ng-scope\"]/button[3]")).click();
+        new Select(driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div[2]/div/select"))).selectByVisibleText("S2");
+        Thread.sleep(2000);
+        assertEquals(driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div[4]/div/span/span/input")).getAttribute("value"), "04/05/2017");
+        Thread.sleep(2000);
+        assertEquals(driver.findElement(By.cssSelector("input.customSpin")).getAttribute("value"), "01");
+        driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[6]/div/div/textarea")).clear();
+        driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[6]/div/div/textarea")).sendKeys("qweet");
+        driver.findElement(By.xpath("//button[@class='btn cancelbutton pull-right']")).click();
+
     }
 
     @AfterClass
     public void returnToCaseManagement() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         driver.findElement(By.xpath("//div[@class=\"dropdown open hover\"]/div/button")).click();
         driver.findElement(By.linkText("Case Management")).click();
     }
-
 }
