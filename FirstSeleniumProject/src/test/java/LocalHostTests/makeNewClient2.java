@@ -1,3 +1,5 @@
+package LocalHostTests;
+
 import net.jsourcerer.webdriver.jserrorcollector.JavaScriptError;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

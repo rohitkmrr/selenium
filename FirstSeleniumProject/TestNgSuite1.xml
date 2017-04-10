@@ -2,32 +2,32 @@
 <suite name="Suite One" >
     <test name="Test One" >
         <classes>
-            <class name="Test1" />
+            <class name="LocalHostTests.Test1" />
         </classes>
     </test>
     <test name="Test two" >
         <classes>
-            <class name="Test2" />
+            <class name="LocalHostTests.Test2" />
         </classes>
     </test>
     <test name="Test three" >
         <classes>
-            <class name="PrintEncounter" />
+            <class name="LocalHostTests.PrintEncounter" />
         </classes>
     </test>
     <test name="Test four" >
         <classes>
-            <class name="MeasureComponent" />
+            <class name="LocalHostTests.MeasureComponent" />
         </classes>
     </test>
     <test name="Test five" >
         <classes>
-            <class name="VerifyEncounterCancel" />
+            <class name="LocalHostTests.VerifyEncounterCancel" />
         </classes>
     </test>
     <test name="Test six" >
         <classes>
-            <class name="VerifyEncounterDraft" />
+            <class name="LocalHostTests.VerifyEncounterDraft" />
         </classes>
     </test>
 </suite>

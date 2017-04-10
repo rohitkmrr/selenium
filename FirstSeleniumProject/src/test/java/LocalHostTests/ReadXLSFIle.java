@@ -1,4 +1,4 @@
-/**
+package LocalHostTests; /**
  * Created by zemoso on 28/3/17.
  */
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -99,7 +99,7 @@ public class ReadXLSFIle {
 
         //Call read file method of the class to read data
 
-        objExcelFile.readExcel(filePath,"ExportExcel.xls","ExcelGuru99Demo");
+        objExcelFile.readExcel(filePath, "LocalHostTests/ExportExcel.xls","ExcelGuru99Demo");
 
     }
 
