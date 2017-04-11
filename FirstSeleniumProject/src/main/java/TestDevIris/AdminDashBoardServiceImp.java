@@ -3,7 +3,9 @@ package TestDevIris;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by zemoso on 10/4/17.
@@ -12,7 +14,7 @@ public class AdminDashBoardServiceImp implements AdminDashBoardService {
 
     private static By programNameElement = By.id("newProgramId");
     private static By programLegalNameElement = By.xpath("//input[@ng-model='newProgram.legalName']");
-//    private static By
+    private static By
 
 
 
@@ -67,17 +69,20 @@ public class AdminDashBoardServiceImp implements AdminDashBoardService {
 
     }
 
+    private static By serviceLinkElement = By.xpath("//div/span/button[2]");
+
     public void addNewServiceWithNoteComponent(String programName, WebDriver driver, String serviceName) throws InterruptedException {
+        WebDriverWait wait=new WebDriverWait(driver, 20);
         driver.findElement(By.linkText(programName)).click();
-        driver.findElement(By.xpath("//div/span/button[2]")).click();
+        driver.findElement(serviceLinkElement).click();
         driver.findElement(By.id("addNewServices")).click();
         driver.findElement(By.xpath("//div[@id='id_add_new_service']/div[2]/div/div/input")).clear();
         driver.findElement(By.xpath("//div[@id='id_add_new_service']/div[2]/div/div/input")).sendKeys(serviceName);
         driver.findElement(By.xpath("//input[@ng-model='componentList.note']")).click();
         new Select(driver.findElement(By.xpath("//select[@ng-model='serviceDetails.serviceComponentDetail.serviceComponent.note.componentRequired']"))).selectByVisibleText("No");
         driver.findElement(By.xpath("//button[@ng-click='addAndUpdateService();']")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.cssSelector("button.close.ng-scope")).click();
+        WebElement closeButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.close.ng-scope")));
+        closeButton.click();
 
     }
 

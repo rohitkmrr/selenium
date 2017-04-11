@@ -7,24 +7,40 @@ import org.openqa.selenium.WebDriver;
  * Created by zemoso on 10/4/17.
  */
 public class CaseManagementDashboardImp implements CaseManagementDashboard {
-    public void addNewClient(WebDriver driver, String programName) {
-        driver.findElement(By.id("newClient")).click();
-        driver.findElement(By.id("email")).clear();
-        driver.findElement(By.id("email")).sendKeys("Rohit1");
-        driver.findElement(By.xpath("(//input[@id='email'])[2]")).clear();
-        driver.findElement(By.xpath("(//input[@id='email'])[2]")).sendKeys("Kumar1");
-        driver.findElement(By.xpath("//button[@ng-click='broadCastContinueEvent();']")).click();
-        driver.findElement(By.xpath("//button[@ng-click='broadCastContinueEvent();']")).click();
+
+    private static By addNewClientElement = By.id("newClient");
+    private static By firstNameElementInAddClient = By.id("email");
+    private static By lastNameElementInAddClient = By.xpath("(//input[@id='email'])[2]");
+    private static By continueButton = By.xpath("//button[@ng-click='broadCastContinueEvent();']");
+    private static By programSelectDropdownElement = By.xpath("//div[@id='programSelection']/div/span/span/span");
+
+
+    public void addNewClient(WebDriver driver, String programName) throws InterruptedException {
+        driver.findElement(addNewClientElement).click();
+        driver.findElement(firstNameElementInAddClient).clear();
+        driver.findElement(firstNameElementInAddClient).sendKeys("Rohit12");
+        driver.findElement(lastNameElementInAddClient).clear();
+        driver.findElement(lastNameElementInAddClient).sendKeys("Kumar12");
+        Thread.sleep(3000);
+        driver.findElement(continueButton).click();
+        Thread.sleep(3000);
+        driver.findElement(continueButton).click();
+        Thread.sleep(3000);
         driver.findElement(By.id("cert0")).click();
-        driver.findElement(By.xpath("//button[@ng-click='broadCastContinueEvent();']")).click();
-        driver.findElement(By.xpath("//div[@id='programSelection']/div/span/span/span")).click();
-        driver.findElement(By.xpath("//div[174]/div/ul/li[text()='Food Coupon']")).click();
-//        driver.findElement(By.xpath("//div[174]/div/ul/li[text()='"+programName+"']")).click();
-        driver.findElement(By.xpath("//button[@ng-click='broadCastContinueEvent();']")).click();
-        driver.findElement(By.xpath("//button[@ng-click='broadCastContinueEvent();']")).click();
-        driver.findElement(By.xpath("//button[@ng-click='broadCastContinueEvent();']")).click();
-        driver.findElement(By.xpath("//button[@ng-click='broadCastContinueEvent();']")).click();
-        driver.findElement(By.xpath("//button[@ng-click='broadCastContinueEvent();']")).click();
+        driver.findElement(continueButton).click();
+        Thread.sleep(3000);
+        driver.findElement(programSelectDropdownElement).click();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//div[@class='k-animation-container']/div/ul[@class='k-list k-reset']/li[.='"+programName+"']")).click();
+        driver.findElement(continueButton).click();
+        Thread.sleep(8000);
+        driver.findElement(continueButton).click();
+        Thread.sleep(8000);
+        driver.findElement(continueButton).click();
+        Thread.sleep(8000);
+        driver.findElement(continueButton).click();
+        Thread.sleep(8000);
+        driver.findElement(continueButton).click();
     }
 
     public void editClientByProgramName(String programName) {

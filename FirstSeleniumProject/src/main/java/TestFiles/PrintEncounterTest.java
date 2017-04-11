@@ -3,6 +3,7 @@ package TestFiles;
 import DevIris.DevBaseClass;
 import TestDevIris.AdminDashBoardService;
 import TestDevIris.AdminDashBoardServiceImp;
+import TestDevIris.CaseManagementDashboardImp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -11,6 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotEquals;
 
 /**
  * Created by zemoso on 11/4/17.
@@ -20,54 +22,69 @@ public class PrintEncounterTest extends DevBaseClass{
     @Autowired
     AdminDashBoardService adminDashBoardService;
 
+    private static By mainMenuDropDownButtonElement = By.xpath("//div[@class=\"dropdown open hover\"]/div/button");
+    private static By adminDashboardLink = By.linkText("Administration");
+    private static By closeButtonForToastElement = By.xpath("//button[@ng-click='closeClick(toasty)']");
+    private static By menuDropDownElement = By.cssSelector("button.dropdown_button");
+    private static By cwDashboardElement = By.linkText("Case Management");
+    private static By newEncounterLink = By.linkText("New Encounter");
+    private static By programNameInEncounterElement = By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div/div/select");
+    private static By serviceNameInEncounterElement = By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div[2]/div/select");
+    private static By saveButtonEncounterElement = By.xpath("(//button[@class='btn btn-default ar pull-right'])");
+    private static By printEncounterElement = By.id("printEncNotes");
+    private static By noteTextInPDF = By.xpath("//div/div[23]");
+
 
     @BeforeClass
     public void gotoAdminDashBoard() {
         WebDriver driver = getDriverInstance();
-        driver.findElement(By.xpath("//div[@class=\"dropdown open hover\"]/div/button")).click();
-        driver.findElement(By.linkText("Administration")).click();
+        driver.findElement(mainMenuDropDownButtonElement).click();
+        driver.findElement(adminDashboardLink).click();
         assertEquals(driver.getTitle(), "Admin Dashboard");
     }
 
     @Test
     public void printEncounterTest() throws InterruptedException {
+
         // make new service with Note field as not required
         String programName = "Food Coupon";
-        String serviceName = "newService3";
-//        adminDashBoardService.addNewServiceWithNoteComponent(programName, driver, serviceName);
+        String serviceName = "newServices12";
+
         AdminDashBoardServiceImp adminDashBoardServiceImp = new AdminDashBoardServiceImp();
         adminDashBoardServiceImp.addNewServiceWithNoteComponent(programName, driver, serviceName);
 
-        //Store location from Overview to select it from Location & Resources
+        //Goto CaseManager, make a new client
+        driver.findElement(closeButtonForToastElement).click();
+        /*WebDriverWait wait=new WebDriverWait(driver, 20);
+        WebElement dropdownButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.dropdown_button")));
+        dropdownButton.click();*/
         Thread.sleep(3000);
-        driver.findElement(By.linkText(programName)).click();
-
-        String locationName = driver.findElement(By.xpath("//li/span[ text()=' Program Location:']/following-sibling::span/ul[1]/li")).getText();
-        driver.findElement(By.xpath("//h4[@id='myModalLabel']/button[@class='close ng-scope']")).click();
-
-        //Goto CaseManager, make a new client Select that program and select any Client
-        Thread.sleep(2000);
-        driver.findElement(By.cssSelector("button.dropdown_button")).click();
-        driver.findElement(By.linkText("Case Management")).click();
-        driver.findElement(By.cssSelector("span.k-input.ng-scope")).click();
-        driver.findElement(By.xpath("//ul[@id='programFilterId_listbox']/li[text()='"+programName+"']")).click();
-        driver.findElement(By.xpath("//table[@id='clientListTable']/tbody/tr/td/a/span/span[3]")).click();
+        driver.findElement(menuDropDownElement).click();
+        driver.findElement(cwDashboardElement).click();
+        CaseManagementDashboardImp caseManagementDashboardImp =  new CaseManagementDashboardImp();
+        caseManagementDashboardImp.addNewClient(driver, programName);
 
         //Make a new encounter for the newly made service
-        driver.findElement(By.linkText("New Encounter")).click();
-        new Select(driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div/div/select"))).selectByVisibleText(programName);
-        new Select(driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div[2]/div/select"))).selectByVisibleText(serviceName);
-        driver.findElement(By.xpath("//div/label[text()='Note']/following-sibling::div/textarea")).clear();
-        driver.findElement(By.xpath("//div/label[text()='Note']/following-sibling::div/textarea")).sendKeys("1");
-        driver.findElement(By.xpath("(//button[@class='btn btn-default ar pull-right'])")).click();
+        Thread.sleep(2000);
+        driver.findElement(newEncounterLink).click();
+        new Select(driver.findElement(programNameInEncounterElement)).selectByVisibleText(programName);
+        new Select(driver.findElement(serviceNameInEncounterElement)).selectByVisibleText(serviceName);
+        driver.findElement(saveButtonEncounterElement).click();
 
         //print that service
         String winHandleBefore = driver.getWindowHandle();
         Thread.sleep(2000);
-        driver.findElement(By.id("printEncNotes")).click();
+        driver.findElement(printEncounterElement).click();
         for(String winHandle : driver.getWindowHandles()){
             driver.switchTo().window(winHandle);
         }
+
+        String note = driver.findElement(noteTextInPDF).getText();
+        assertNotEquals("Note: null", note);
+        driver.close();
+
+        // Switch back to original browser (first window)
+        driver.switchTo().window(winHandleBefore);
 
     }
 
