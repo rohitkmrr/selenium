@@ -8,9 +8,6 @@
     <artifactId>my FirstSeleniumTest</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>SeleniumSuit</module>
-    </modules>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
@@ -31,6 +28,11 @@
             <artifactId>poi</artifactId>
             <version>3.15</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>4.3.7.RELEASE</version>
+        </dependency>
     </dependencies>
 </project>

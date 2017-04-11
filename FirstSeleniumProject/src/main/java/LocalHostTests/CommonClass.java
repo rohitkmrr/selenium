@@ -15,7 +15,7 @@ public class CommonClass {
     public String baseUrl = "http://localhost:8080/phhs";
     private StringBuffer verificationErrors = new StringBuffer();
     String driverPath = "/home/zemoso/geckodriver.exe";
-    protected static WebDriver driver;
+    public static WebDriver driver;
 
     public static WebDriver getDriverInstance() {
         return driver;
