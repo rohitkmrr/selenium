@@ -21,45 +21,49 @@ public class DevBaseClass {
     public static WebDriver getDriverInstance() {
         return driver;
     }
+    private static By userNameElement = By.id("username");
+    private static By passwordElement = By.id("pWord");
+    private static By loginButtonElement = By.id("buttonLogin");
+    private static By verifyByEmail = By.id("pin-process_email");
+    private static By submitButtonOnVerifyMethod =By.xpath("//div[@class=\"modal-footer\"]/button[@id=\"pin-process_submit\"]");
+    private static By submitPin =By.id("pin-verify_submit");
+    private static By mainMenuDropdown =By.xpath("//div[@class=\"dropdown\"]/div/button");
+    private static By adminDashboardLink =By.linkText("Administration");
 
 
     @BeforeSuite
     public void setUp() throws InterruptedException {
         System.out.println("launching firefox browser");
+
         // launch firefox
         System.setProperty("webdriver.firefox.marionette", driverPath);
         driver = DriverFactory.createDriver();
         driver.get(baseUrl);
 
         // login username and password
-        WebElement userName = driver.findElement(By.id("username"));
+        WebElement userName = driver.findElement(userNameElement);
         userName.sendKeys("rohit");
-        WebElement password = driver.findElement(By.id("pWord"));
+        WebElement password = driver.findElement(passwordElement);
         password.sendKeys("Rkumar17094!!");
-        WebElement loginButton = driver.findElement(By.id("buttonLogin"));
+        WebElement loginButton = driver.findElement(loginButtonElement);
         loginButton.click();
 
-      /*  // if already logged In
-        if(driver.findElements(By.xpath("//h4[@id=\"modal_already-logged-in_label\"]/strong")).size() >0){
+        // if already logged In
+//        if(driver.findElements(By.xpath("//h4[@id=\"modal_already-logged-in_label\"]/strong")).size() >0){
+        if(driver.findElements(By.xpath("//button[@onclick='alreadyLoggedIn_cancel()']")).size() >0){
             System.out.println("Continuing to already login");
-            driver.findElement(By.xpath("//div[@id=\"modal_already-logged-in\"]/div/div/div[@class=\"modal-footer\"]/button[@class=\"btn btn-default\"]")).click();
-        }*/
+            driver.findElement(By.xpath("//button[@onclick='alreadyLoggedIn_submit()']")).click();
+        }
 
         // if verify your identity modal appear
-        driver.findElement(By.id("pin-process_email")).click();
-        driver.findElement(By.xpath("//div[@class=\"modal-footer\"]/button[@id=\"pin-process_submit\"]")).click();
-
-        /*(new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return d.findElement(By.id("pin-verify_pin")).getText().length() != 0;
-            }
-        });*/
+        driver.findElement(verifyByEmail).click();
+        driver.findElement(submitButtonOnVerifyMethod).click();
 
         // enter random pin.
         Thread.sleep(30000);
-        driver.findElement(By.id("pin-verify_submit")).click();
-        driver.findElement(By.xpath("//div[@class=\"dropdown\"]/div/button")).click();
-        driver.findElement(By.linkText("Administration")).click();
+        driver.findElement(submitPin).click();
+        driver.findElement(mainMenuDropdown).click();
+        driver.findElement(adminDashboardLink).click();
     }
 
     @AfterSuite

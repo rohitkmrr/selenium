@@ -15,12 +15,12 @@ public class CaseManagementDashboardImp implements CaseManagementDashboard {
     private static By programSelectDropdownElement = By.xpath("//div[@id='programSelection']/div/span/span/span");
 
 
-    public void addNewClient(WebDriver driver, String programName) throws InterruptedException {
+    public void addNewClient(WebDriver driver, String programName, String firstName, String lastName) throws InterruptedException {
         driver.findElement(addNewClientElement).click();
         driver.findElement(firstNameElementInAddClient).clear();
-        driver.findElement(firstNameElementInAddClient).sendKeys("Rohit12");
+        driver.findElement(firstNameElementInAddClient).sendKeys(firstName);
         driver.findElement(lastNameElementInAddClient).clear();
-        driver.findElement(lastNameElementInAddClient).sendKeys("Kumar12");
+        driver.findElement(lastNameElementInAddClient).sendKeys(lastName);
         Thread.sleep(3000);
         driver.findElement(continueButton).click();
         Thread.sleep(3000);
@@ -32,8 +32,6 @@ public class CaseManagementDashboardImp implements CaseManagementDashboard {
         driver.findElement(programSelectDropdownElement).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("//div[@class='k-animation-container']/div/ul[@class='k-list k-reset']/li[.='"+programName+"']")).click();
-        driver.findElement(continueButton).click();
-        Thread.sleep(8000);
         driver.findElement(continueButton).click();
         Thread.sleep(8000);
         driver.findElement(continueButton).click();

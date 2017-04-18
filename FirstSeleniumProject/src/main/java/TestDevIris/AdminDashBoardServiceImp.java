@@ -12,31 +12,32 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class AdminDashBoardServiceImp implements AdminDashBoardService {
 
-    private static By programNameElement = By.id("newProgramId");
-    private static By programLegalNameElement = By.xpath("//input[@ng-model='newProgram.legalName']");
-    private static By serviceLinkElement = By.xpath("//div/span/button[2]");
-    private static By addNewServiceLinkInService = By.id("addNewServices");
-    private static By serviceNameInputElement = By.xpath("//div[@id='id_add_new_service']/div[2]/div/div/input");
-    private static By noteCheckboxElement = By.xpath("//input[@ng-model='componentList.note']");
-    private static By noForRequired = By.xpath("//select[@ng-model='serviceDetails.serviceComponentDetail.serviceComponent.note.componentRequired']");
-    private static By serviceSaveButton = By.xpath("//button[@ng-click='addAndUpdateService();']");
-    private static By closeServiceButton = By.cssSelector("button.close.ng-scope");
-    private static By addNewServiceLink = By.linkText("Add New Service");
-    private static By serviceNameInputField = By.xpath("//input[@ng-model='serviceDetails.name']");
-    private static By checkboxForNote = By.xpath("(//input[@type='checkbox'])[2]");
-    private static By noForRequiredElement = By.xpath("//div[@id='id_add_new_service']/div[8]/div[2]/div/select");
-    private static By saveService = By.xpath("(//button[@type='button'])[18]");
-    private static By addNewFormLinkElement = By.cssSelector("button.small_header_link");
-    private static By selectProgramElement = By.cssSelector("span.k-input.ng-scope");
-    private static By formNameInputField = By.name("formName");
-    private static By selectFormStatus  = By.xpath("//div[@id='panel-default']/div[2]/form/div[2]/div/div/select");
-    private static By selectActive  = By.cssSelector("option[value=\"ACTIVE\"]");
-    private static By saveFormButton  = By.xpath("(//label[@type='submit'])[2]");
-    private static By addNewProgramLink  = By.linkText("Add New Program");
-    private static By serviceDropdownInAddProgram  =By.cssSelector("input.k-input");
-    private static By selectServiceFromDropdownInAddProgram  =By.xpath("//ul[@id='newServiceId_listbox']/li[2]");
-    private static By selectLocationField  =By.xpath("//ul[@id='editableNewProgDetails']/li[10]/div/div/input");
-    private static By selectParticularLocation  =By.xpath("//ul[@id='location_listbox']/li[2]");
+    public static By programNameElement = By.id("newProgramId");
+    public static By programLegalNameElement = By.xpath("//input[@ng-model='newProgram.legalName']");
+    public static By serviceLinkElement = By.xpath("//div/span/button[2]");
+    public static By addNewServiceLinkInService = By.id("addNewServices");
+    public static By serviceNameInputElement = By.xpath("//div[@id='id_add_new_service']/div[2]/div/div/input");
+    public static By noteCheckboxElement = By.xpath("//input[@ng-model='componentList.note']");
+    public static By noForRequired = By.xpath("//select[@ng-model='serviceDetails.serviceComponentDetail.serviceComponent.note.componentRequired']");
+    public static By serviceSaveButton = By.xpath("//button[@ng-click='addAndUpdateService();']");
+    public static By closeServiceButton = By.cssSelector("button.close.ng-scope");
+    public static By addNewServiceLink = By.linkText("Add New Service");
+    public static By serviceNameInputField = By.xpath("//input[@ng-model='serviceDetails.name']");
+    public static By checkboxForNote = By.xpath("(//input[@type='checkbox'])[2]");
+    public static By noForRequiredElement = By.xpath("//div[@id='id_add_new_service']/div[8]/div[2]/div/select");
+    public static By saveService = By.xpath("(//button[@type='button'])[18]");
+    public static By addNewFormLinkElement = By.cssSelector("button.small_header_link");
+    public static By selectProgramElement = By.cssSelector("span.k-input.ng-scope");
+    public static By formNameInputField = By.name("formName");
+    public static By selectFormStatus  = By.xpath("//div[@id='panel-default']/div[2]/form/div[2]/div/div/select");
+    public static By selectActive  = By.cssSelector("option[value=\"ACTIVE\"]");
+    public static By saveFormButton  = By.xpath("(//label[@type='submit'])[2]");
+    public static By addNewProgramLink  = By.linkText("Add New Program");
+    public static By serviceDropdownInAddProgram  =By.cssSelector("input.k-input");
+    public static By selectServiceFromDropdownInAddProgram  =By.xpath("//ul[@id='newServiceId_listbox']/li[2]");
+    public static By selectLocationField  =By.xpath("//ul[@id='editableNewProgDetails']/li[10]/div/div/input");
+    public static By selectParticularLocation  =By.xpath("//ul[@id='location_listbox']/li[2]");
+    public static By closeButtonForToastElement = By.xpath("//button[@ng-click='closeClick(toasty)']");
 
 
 
@@ -93,16 +94,44 @@ public class AdminDashBoardServiceImp implements AdminDashBoardService {
 
     }
 
-    public void addNewServiceWithNoteComponent(String programName, WebDriver driver, String serviceName) throws InterruptedException {
-        WebDriverWait wait=new WebDriverWait(driver, 20);
+    public String findLocationOfProgram(WebDriver driver, String programName) {
+        driver.findElement(By.linkText(programName)).click();
+        String location = driver.findElement(By.xpath("//li/span[text()=' Program Location:']/following-sibling::span/ul/li")).getText();
+        driver.findElement(By.xpath("//button[@class='close ng-scope']")).click();
+        return location;
+    }
+
+    public void addNewResourcePool(WebDriver driver, String resourceType, String resourcePoolName ) {
+        driver.findElement(By.xpath("//strong[text()='Add Resource Pool']")).click();
+        new Select(driver.findElement(By.xpath("//label[text()='Resource Type']/following-sibling::div/select"))).selectByVisibleText(resourceType);
+        driver.findElement(By.xpath("//label[text()='Resource Pool Name']/following-sibling::div/input")).clear();
+        driver.findElement(By.xpath("//label[text()='Resource Pool Name']/following-sibling::div/input")).sendKeys(resourcePoolName);
+        driver.findElement(By.xpath("//button[@ng-click='saveResourcePool()']")).click();
+    }
+
+    public void addNewService(String programName, WebDriver driver, String serviceName) {
         driver.findElement(By.linkText(programName)).click();
         driver.findElement(serviceLinkElement).click();
         driver.findElement(addNewServiceLinkInService).click();
         driver.findElement(serviceNameInputElement).clear();
         driver.findElement(serviceNameInputElement).sendKeys(serviceName);
+    }
+
+    public void saveNewService(WebDriver driver) {
+        WebDriverWait wait=new WebDriverWait(driver, 20);
+        driver.findElement(serviceSaveButton).click();
+        WebElement closeButton = wait.until(ExpectedConditions.visibilityOfElementLocated(closeServiceButton));
+        closeButton.click();
+    }
+
+    public void addNewServiceWithNoteComponent(String programName, WebDriver driver, String serviceName) throws InterruptedException {
+        addNewService(programName, driver, serviceName);
         driver.findElement(noteCheckboxElement).click();
         new Select(driver.findElement(noForRequired)).selectByVisibleText("No");
+//        saveNewService(driver);
+        WebDriverWait wait=new WebDriverWait(driver, 20);
         driver.findElement(serviceSaveButton).click();
+        driver.findElement(closeButtonForToastElement).click();
         WebElement closeButton = wait.until(ExpectedConditions.visibilityOfElementLocated(closeServiceButton));
         closeButton.click();
 

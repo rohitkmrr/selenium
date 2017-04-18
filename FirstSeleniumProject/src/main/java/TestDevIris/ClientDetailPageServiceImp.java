@@ -1,9 +1,23 @@
 package TestDevIris;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+
 /**
  * Created by zemoso on 10/4/17.
  */
 public class ClientDetailPageServiceImp implements ClientDetailPage {
+    public static By newEncounterLink = By.linkText("New Encounter");
+    public static By programNameInEncounterElement = By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div/div/select");
+    public static By serviceNameInEncounterElement = By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div[2]/div/select");
+
+    public  void createNewEncounter(WebDriver driver, String programName, String serviceName) {
+        driver.findElement(newEncounterLink).click();
+        new Select(driver.findElement(programNameInEncounterElement)).selectByVisibleText(programName);
+        new Select(driver.findElement(serviceNameInEncounterElement)).selectByVisibleText(serviceName);
+
+    }
     public void editClientDetails() {
 
     }
