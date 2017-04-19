@@ -1,5 +1,6 @@
 package LocalServer;
 
+import TestDevIris.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -12,7 +13,7 @@ import static org.testng.Assert.assertEquals;
 /**
  * Created by zemoso on 6/4/17.
  */
-public class CheckIncrement extends BaseClass {
+public class CheckIncrement extends LoginPage {
     @BeforeClass
     public void gotoServiceDelivery() throws InterruptedException {
         WebDriver driver = getDriverInstance();

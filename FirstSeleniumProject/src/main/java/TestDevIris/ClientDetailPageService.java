@@ -7,14 +7,14 @@ import org.openqa.selenium.support.ui.Select;
 /**
  * Created by zemoso on 10/4/17.
  */
-public class ClientDetailPageServiceImp  {
+public class ClientDetailPageService {
     private WebDriver driver;
 
     public static By newEncounterLink = By.linkText("New Encounter");
     public static By programNameInEncounterElement = By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div/div/select");
     public static By serviceNameInEncounterElement = By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div[2]/div/select");
 
-    public ClientDetailPageServiceImp(WebDriver driver){
+    public ClientDetailPageService(WebDriver driver){
         this.driver = driver;
     }
 

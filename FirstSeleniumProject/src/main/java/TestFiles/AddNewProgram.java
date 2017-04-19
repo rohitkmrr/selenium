@@ -1,6 +1,6 @@
 package TestFiles;
 
-import LocalServer.BaseClass;
+import TestDevIris.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
@@ -13,10 +13,10 @@ import static org.testng.Assert.assertEquals;
 /**
  * Created by zemoso on 10/4/17.
  */
-public class AddNewProgram extends BaseClass {
+public class AddNewProgram extends LoginPage {
     @BeforeClass
     public void gotoAdminDashBoard() {
-        WebDriver driver = BaseClass.getDriverInstance();
+        WebDriver driver = getDriverInstance();
         driver.findElement(By.xpath("//div[@class=\"dropdown open hover\"]/div/button")).click();
         driver.findElement(By.linkText("Administration")).click();
         assertEquals(driver.getTitle(), "Admin Dashboard");
@@ -24,15 +24,15 @@ public class AddNewProgram extends BaseClass {
 
     @Test
     public void testCheckbox() throws InterruptedException {
-//        AdminDashBoardServiceImp adminDashBoardServiceImp = new AdminDashBoardServiceImp();
-//        adminDashBoardServiceImp.enterProgramDetailsDuringAddNewProgram("ProgTemp1", BaseClass.driver);
-//        adminDashBoardServiceImp.addServicesDuringAddNewProgram(BaseClass.driver);
+//        AdminDashBoardService adminDashBoardServiceImp = new AdminDashBoardService();
+//        adminDashBoardServiceImp.enterProgramDetailsDuringAddNewProgram("ProgTemp1", LoginPage.driver);
+//        adminDashBoardServiceImp.addServicesDuringAddNewProgram(LoginPage.driver);
     }
 
     @AfterClass
     public void returnToCaseManagement() throws InterruptedException {
         Thread.sleep(2000);
-        BaseClass.driver.findElement(By.xpath("(//button[@type='button'])[15]")).click();
-        BaseClass.driver.findElement(By.cssSelector("button.close.ng-scope")).click();
+        driver.findElement(By.xpath("(//button[@type='button'])[15]")).click();
+        driver.findElement(By.cssSelector("button.close.ng-scope")).click();
     }
 }

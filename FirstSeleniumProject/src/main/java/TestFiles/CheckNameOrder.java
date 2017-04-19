@@ -1,10 +1,7 @@
 package TestFiles;
 
-import LocalServer.BaseClass;
-import TestDevIris.AdminDashBoardServiceImp;
-import TestDevIris.CaseManagementDashboardImp;
-import TestDevIris.ClientDetailPageServiceImp;
-import TestDevIris.MainMenuPage;
+import TestDevIris.*;
+import TestDevIris.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -18,10 +15,10 @@ import static org.testng.Assert.assertEquals;
  */
 
 // JIRA 7919
-public class CheckNameOrder extends BaseClass{
+public class CheckNameOrder extends LoginPage {
     PrintEncounterTest printEncounterTest = new PrintEncounterTest();
     CheckBoxTest checkBoxTest = new CheckBoxTest();
-    MainMenuPage mainMenuPage = new MainMenuPage();
+    MainMenuService mainMenuService = new MainMenuService();
 
     public static By resourceAssignmentInService = By.xpath("//input[@ng-model='componentList.resourceAssignment']");
     public static By resourceTypeInService = By.xpath("//label[text()='Resource Type']/following-sibling::div/select");
@@ -38,32 +35,32 @@ public class CheckNameOrder extends BaseClass{
     public static By resourceTypeInViewResources = By.xpath("//div[2]/select");
     public static By closeViewResourcesModal = By.xpath("//span[text()='View Resources']/following-sibling::button");
 
-    private String serviceName = "newService019";
+    private String serviceName = "newService022";
     private String resourceType = "Bed";
     private String programName = "7124 test";
-    private String firstName ="RohitA14";
-    private String lastName ="KumarA14";
-    private String resourcePoolName ="myPoolA15";
+    private String firstName ="RohitA17";
+    private String lastName ="KumarA17";
+    private String resourcePoolName ="myPoolA17";
     private String location = "Ortho Paedics";
 
     @BeforeClass
     public void gotoAdminDashBoard() throws InterruptedException {
         Thread.sleep(3000);
         WebDriver driver = getDriverInstance();
-        mainMenuPage.gotoAdminDashBoard(driver);
+        mainMenuService.gotoAdminDashBoard(driver);
     }
 
     @Test
     public  void testNameOrder() throws InterruptedException {
-        AdminDashBoardServiceImp adminDashBoardServiceImp = new AdminDashBoardServiceImp(driver);
-        CaseManagementDashboardImp caseManagementDashboardImp = new CaseManagementDashboardImp(driver);
-        ClientDetailPageServiceImp clientDetailPageServiceImp = new ClientDetailPageServiceImp(driver);
+        AdminDashBoardService adminDashBoardService = new AdminDashBoardService(driver);
+        CaseManagementDashboardService caseManagementDashboardService = new CaseManagementDashboardService(driver);
+        ClientDetailPageService clientDetailPageService = new ClientDetailPageService(driver);
 
         //1. make new service with Resource Assignment as Bed
-        adminDashBoardServiceImp.addNewService(programName, serviceName);
+        adminDashBoardService.addNewService(programName, serviceName);
         driver.findElement(resourceAssignmentInService).click();
         new Select(driver.findElement(resourceTypeInService)).selectByVisibleText(resourceType);
-        adminDashBoardServiceImp.saveNewService();
+        adminDashBoardService.saveNewService();
 
         // Create new resource pool
         //3. click on Location and Resources
@@ -87,12 +84,12 @@ public class CheckNameOrder extends BaseClass{
         driver.findElement(closeLocationAndResources).click();
 
         Thread.sleep(3000);
-        mainMenuPage.gotoCaseManagerDashBoard(driver);
+        mainMenuService.gotoCaseManagerDashBoard(driver);
         // add new client
-        caseManagementDashboardImp.addNewClient(programName, firstName, lastName);
+        caseManagementDashboardService.addNewClient(programName, firstName, lastName);
 
         // create new Encounter
-        clientDetailPageServiceImp.createNewEncounter(programName, serviceName);
+        clientDetailPageService.createNewEncounter(programName, serviceName);
         // TODO: 19/4/17 change it for Location
 //        new Select(driver.findElement(By.xpath("//label[text()='Resource Location']/following-sibling::div/select"))).selectByVisibleText(checkBoxTest.location);
         new Select(driver.findElement(resourceLocationInEncounter)).selectByVisibleText(location);
@@ -102,7 +99,7 @@ public class CheckNameOrder extends BaseClass{
 
         //4. goto View Resources on AdminDashboard
         Thread.sleep(6000);
-        mainMenuPage.gotoAdminDashBoard(driver);
+        mainMenuService.gotoAdminDashBoard(driver);
         driver.findElement(viewResourceLink).click();
 
         //5. Select Location abd ResourceType "Bed"

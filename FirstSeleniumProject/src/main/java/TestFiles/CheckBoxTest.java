@@ -1,8 +1,8 @@
 package TestFiles;
 
-import LocalServer.BaseClass;
-import TestDevIris.AdminDashBoardServiceImp;
-import TestDevIris.MainMenuPage;
+import TestDevIris.AdminDashBoardService;
+import TestDevIris.LoginPage;
+import TestDevIris.MainMenuService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
@@ -15,8 +15,8 @@ import static org.testng.Assert.assertEquals;
  */
 
 // JIRA 7921
-public class CheckBoxTest extends BaseClass{
-    MainMenuPage mainMenuPage = new MainMenuPage();
+public class CheckBoxTest extends LoginPage {
+    MainMenuService mainMenuService = new MainMenuService();
 
 
     public String location ="";
@@ -32,19 +32,19 @@ public class CheckBoxTest extends BaseClass{
     @BeforeClass
     public void gotoAdminDashBoard() {
         WebDriver driver = getDriverInstance();
-        mainMenuPage.gotoAdminDashBoard(driver);
+        mainMenuService.gotoAdminDashBoard(driver);
     }
 
     @Test
     public void testCheckBox() throws InterruptedException {
-        AdminDashBoardServiceImp adminDashBoardServiceImp = new AdminDashBoardServiceImp(driver);
+        AdminDashBoardService adminDashBoardService = new AdminDashBoardService(driver);
 
         //2. For a program, check its location and store it in a variable
         String programName = "7124 test";
         String resourceType = "Bed";
-        String resourcePoolName = "bed31";
+        String resourcePoolName = "bed34";
 
-        location = adminDashBoardServiceImp.findLocationOfProgram(programName);
+        location = adminDashBoardService.findLocationOfProgram(programName);
         //3. click on Location and Resources
         Thread.sleep(3000);
         driver.findElement(locationAndResourcesLink).click();
@@ -53,7 +53,7 @@ public class CheckBoxTest extends BaseClass{
         driver.findElement(By.linkText(location)).click();
 
         //5. add new resource pool without restriction
-        adminDashBoardServiceImp.addNewResourcePool( resourceType, resourcePoolName);
+        adminDashBoardService.addNewResourcePool( resourceType, resourcePoolName);
 
         //6, click on that particular resources.
         Thread.sleep(3000);

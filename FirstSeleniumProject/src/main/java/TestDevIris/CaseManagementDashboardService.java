@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by zemoso on 10/4/17.
  */
-public class CaseManagementDashboardImp  {
+public class CaseManagementDashboardService {
     private WebDriver driver;
 
     private static By addNewClientElement = By.id("newClient");
@@ -15,7 +15,7 @@ public class CaseManagementDashboardImp  {
     private static By continueButton = By.xpath("//button[@ng-click='broadCastContinueEvent();']");
     private static By programSelectDropdownElement = By.xpath("//div[@id='programSelection']/div/span/span/span");
 
-    public CaseManagementDashboardImp(WebDriver driver){
+    public CaseManagementDashboardService(WebDriver driver){
         this.driver = driver;
     }
 

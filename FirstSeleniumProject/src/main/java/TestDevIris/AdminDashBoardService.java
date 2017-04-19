@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by zemoso on 10/4/17.
  */
-public class AdminDashBoardServiceImp  {
+public class AdminDashBoardService {
     private WebDriver driver;
 
     public static By programNameElement = By.id("newProgramId");
@@ -42,7 +42,7 @@ public class AdminDashBoardServiceImp  {
 
 
 
-    public AdminDashBoardServiceImp(WebDriver driver){
+    public AdminDashBoardService(WebDriver driver){
         this.driver = driver;
     }
 
@@ -134,12 +134,7 @@ public class AdminDashBoardServiceImp  {
         addNewService(programName,serviceName);
         driver.findElement(noteCheckboxElement).click();
         new Select(driver.findElement(noForRequired)).selectByVisibleText("No");
-//        saveNewService(driver);
-        WebDriverWait wait=new WebDriverWait(driver, 20);
-        driver.findElement(serviceSaveButton).click();
-        driver.findElement(closeButtonForToastElement).click();
-        WebElement closeButton = wait.until(ExpectedConditions.visibilityOfElementLocated(closeServiceButton));
-        closeButton.click();
+        saveNewService();
 
     }
 

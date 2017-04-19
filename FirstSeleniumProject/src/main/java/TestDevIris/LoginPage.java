@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+
 import static org.testng.Assert.fail;
 
 /**
@@ -85,4 +86,3 @@ public class LoginPage {
         }
     }
 }
-

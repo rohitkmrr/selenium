@@ -1,5 +1,6 @@
 package LocalServer;
 
+import TestDevIris.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -8,7 +9,7 @@ import static org.testng.Assert.assertEquals;
 /**
  * Created by zemoso on 7/4/17.
  */
-class Encounter extends BaseClass{
+class Encounter extends LoginPage {
 
     public void createEncounter1() {
         WebDriver driver = getDriverInstance();

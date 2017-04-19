@@ -6,10 +6,10 @@
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <!-- A simple bean definition -->
-    <bean id="adminDashBoardServiceImp" class="TestDevIris.AdminDashBoardServiceImp"/>
-    <bean id="caseManagementDashboardImp" class="TestDevIris.CaseManagementDashboardImp"/>
-    <bean id="clientDetailPageServiceImp" class="TestDevIris.ClientDetailPageServiceImp"/>
-    <bean id="mainMenuPage" class="TestDevIris.MainMenuPage"/>
+    <bean id="adminDashBoardService" class="TestDevIris.AdminDashBoardService"/>
+    <bean id="caseManagementDashboardService" class="TestDevIris.CaseManagementDashboardService"/>
+    <bean id="clientDetailPageService" class="TestDevIris.ClientDetailPageService"/>
+    <bean id="mainMenuPage" class="TestDevIris.MainMenuService"/>
 
 
 </beans>

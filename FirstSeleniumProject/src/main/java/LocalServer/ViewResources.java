@@ -1,5 +1,6 @@
 package LocalServer;
 
+import TestDevIris.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -12,7 +13,7 @@ import static org.testng.Assert.assertEquals;
 /**
  * Created by zemoso on 6/4/17.
  */
-public class ViewResources extends BaseClass {
+public class ViewResources extends LoginPage {
     @BeforeClass
     public void gotoAdminDashboard() {
         WebDriver driver = getDriverInstance();

@@ -1,5 +1,6 @@
 package LocalServer;
 
+import TestDevIris.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
@@ -11,7 +12,7 @@ import static org.testng.Assert.assertNotEquals;
 /**
  * Created by zemoso on 6/4/17.
  */
-public class VerifyEncounterPrint extends BaseClass {
+public class VerifyEncounterPrint extends LoginPage {
     @BeforeClass
     public void gotoCaseManagement() throws InterruptedException {
         WebDriver driver = getDriverInstance();

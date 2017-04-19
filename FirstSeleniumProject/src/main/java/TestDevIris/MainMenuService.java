@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by zemoso on 19/4/17.
  */
-public class MainMenuPage {
+public class MainMenuService {
     public static By mainMenuDropDownButtonElement = By.xpath("//div[@class=\"dropdown open hover\"]/div/button");
     public static By adminDashboardLink = By.linkText("Administration");
     public static By cwDashboardElement = By.linkText("Case Management");
