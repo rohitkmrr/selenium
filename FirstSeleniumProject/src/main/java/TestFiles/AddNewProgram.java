@@ -1,7 +1,6 @@
 package TestFiles;
 
 import LocalServer.BaseClass;
-import TestDevIris.AdminDashBoardServiceImp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
@@ -25,9 +24,9 @@ public class AddNewProgram extends BaseClass {
 
     @Test
     public void testCheckbox() throws InterruptedException {
-        AdminDashBoardServiceImp adminDashBoardServiceImp = new AdminDashBoardServiceImp();
-        adminDashBoardServiceImp.enterProgramDetailsDuringAddNewProgram("ProgTemp1", BaseClass.driver);
-        adminDashBoardServiceImp.addServicesDuringAddNewProgram(BaseClass.driver);
+//        AdminDashBoardServiceImp adminDashBoardServiceImp = new AdminDashBoardServiceImp();
+//        adminDashBoardServiceImp.enterProgramDetailsDuringAddNewProgram("ProgTemp1", BaseClass.driver);
+//        adminDashBoardServiceImp.addServicesDuringAddNewProgram(BaseClass.driver);
     }
 
     @AfterClass

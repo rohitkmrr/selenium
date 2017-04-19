@@ -37,14 +37,14 @@ public class CheckBoxTest extends BaseClass{
 
     @Test
     public void testCheckBox() throws InterruptedException {
-        AdminDashBoardServiceImp adminDashBoardServiceImp = new AdminDashBoardServiceImp();
+        AdminDashBoardServiceImp adminDashBoardServiceImp = new AdminDashBoardServiceImp(driver);
 
         //2. For a program, check its location and store it in a variable
         String programName = "7124 test";
         String resourceType = "Bed";
-        String resourcePoolName = "bed28";
+        String resourcePoolName = "bed31";
 
-        location = adminDashBoardServiceImp.findLocationOfProgram(driver, programName);
+        location = adminDashBoardServiceImp.findLocationOfProgram(programName);
         //3. click on Location and Resources
         Thread.sleep(3000);
         driver.findElement(locationAndResourcesLink).click();
@@ -53,7 +53,7 @@ public class CheckBoxTest extends BaseClass{
         driver.findElement(By.linkText(location)).click();
 
         //5. add new resource pool without restriction
-        adminDashBoardServiceImp.addNewResourcePool(driver, resourceType, resourcePoolName);
+        adminDashBoardServiceImp.addNewResourcePool( resourceType, resourcePoolName);
 
         //6, click on that particular resources.
         Thread.sleep(3000);

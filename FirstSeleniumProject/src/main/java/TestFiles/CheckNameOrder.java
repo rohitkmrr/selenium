@@ -20,9 +20,6 @@ import static org.testng.Assert.assertEquals;
 // JIRA 7919
 public class CheckNameOrder extends BaseClass{
     PrintEncounterTest printEncounterTest = new PrintEncounterTest();
-    AdminDashBoardServiceImp adminDashBoardServiceImp = new AdminDashBoardServiceImp();
-    CaseManagementDashboardImp caseManagementDashboardImp = new CaseManagementDashboardImp();
-    ClientDetailPageServiceImp clientDetailPageServiceImp = new ClientDetailPageServiceImp();
     CheckBoxTest checkBoxTest = new CheckBoxTest();
     MainMenuPage mainMenuPage = new MainMenuPage();
 
@@ -41,12 +38,12 @@ public class CheckNameOrder extends BaseClass{
     public static By resourceTypeInViewResources = By.xpath("//div[2]/select");
     public static By closeViewResourcesModal = By.xpath("//span[text()='View Resources']/following-sibling::button");
 
-    private String serviceName = "newService014";
+    private String serviceName = "newService019";
     private String resourceType = "Bed";
     private String programName = "7124 test";
-    private String firstName ="RohitA10";
-    private String lastName ="KumarA10";
-    private String resourcePoolName ="myPoolA12";
+    private String firstName ="RohitA14";
+    private String lastName ="KumarA14";
+    private String resourcePoolName ="myPoolA15";
     private String location = "Ortho Paedics";
 
     @BeforeClass
@@ -58,12 +55,15 @@ public class CheckNameOrder extends BaseClass{
 
     @Test
     public  void testNameOrder() throws InterruptedException {
+        AdminDashBoardServiceImp adminDashBoardServiceImp = new AdminDashBoardServiceImp(driver);
+        CaseManagementDashboardImp caseManagementDashboardImp = new CaseManagementDashboardImp(driver);
+        ClientDetailPageServiceImp clientDetailPageServiceImp = new ClientDetailPageServiceImp(driver);
 
         //1. make new service with Resource Assignment as Bed
-        adminDashBoardServiceImp.addNewService(programName, driver, serviceName);
+        adminDashBoardServiceImp.addNewService(programName, serviceName);
         driver.findElement(resourceAssignmentInService).click();
         new Select(driver.findElement(resourceTypeInService)).selectByVisibleText(resourceType);
-        adminDashBoardServiceImp.saveNewService(driver);
+        adminDashBoardServiceImp.saveNewService();
 
         // Create new resource pool
         //3. click on Location and Resources
@@ -89,10 +89,10 @@ public class CheckNameOrder extends BaseClass{
         Thread.sleep(3000);
         mainMenuPage.gotoCaseManagerDashBoard(driver);
         // add new client
-        caseManagementDashboardImp.addNewClient(driver, programName, firstName, lastName);
+        caseManagementDashboardImp.addNewClient(programName, firstName, lastName);
 
         // create new Encounter
-        clientDetailPageServiceImp.createNewEncounter(driver, programName, serviceName);
+        clientDetailPageServiceImp.createNewEncounter(programName, serviceName);
         // TODO: 19/4/17 change it for Location
 //        new Select(driver.findElement(By.xpath("//label[text()='Resource Location']/following-sibling::div/select"))).selectByVisibleText(checkBoxTest.location);
         new Select(driver.findElement(resourceLocationInEncounter)).selectByVisibleText(location);
@@ -102,7 +102,7 @@ public class CheckNameOrder extends BaseClass{
 
         //4. goto View Resources on AdminDashboard
         Thread.sleep(6000);
-        printEncounterTest.gotoAdminDashBoard();
+        mainMenuPage.gotoAdminDashBoard(driver);
         driver.findElement(viewResourceLink).click();
 
         //5. Select Location abd ResourceType "Bed"

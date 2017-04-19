@@ -1,4 +1,4 @@
-package LocalServer;
+package TestDevIris;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

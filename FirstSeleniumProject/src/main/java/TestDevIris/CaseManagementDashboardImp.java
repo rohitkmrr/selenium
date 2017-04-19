@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
  * Created by zemoso on 10/4/17.
  */
 public class CaseManagementDashboardImp  {
+    private WebDriver driver;
 
     private static By addNewClientElement = By.id("newClient");
     private static By firstNameElementInAddClient = By.id("email");
@@ -14,8 +15,11 @@ public class CaseManagementDashboardImp  {
     private static By continueButton = By.xpath("//button[@ng-click='broadCastContinueEvent();']");
     private static By programSelectDropdownElement = By.xpath("//div[@id='programSelection']/div/span/span/span");
 
+    public CaseManagementDashboardImp(WebDriver driver){
+        this.driver = driver;
+    }
 
-    public void addNewClient(WebDriver driver, String programName, String firstName, String lastName) throws InterruptedException {
+    public void addNewClient(String programName, String firstName, String lastName) throws InterruptedException {
         driver.findElement(addNewClientElement).click();
         driver.findElement(firstNameElementInAddClient).clear();
         driver.findElement(firstNameElementInAddClient).sendKeys(firstName);

@@ -1,10 +1,7 @@
 package TestFiles;
 
 import LocalServer.BaseClass;
-import TestDevIris.AdminDashBoardServiceImp;
-import TestDevIris.CaseManagementDashboardImp;
-import TestDevIris.ClientDetailPageServiceImp;
-import TestDevIris.MainMenuPage;
+import TestDevIris.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.springframework.test.context.ContextConfiguration;
@@ -22,7 +19,6 @@ import static org.testng.Assert.assertNotEquals;
 public class PrintEncounterTest extends BaseClass{
 
     MainMenuPage mainMenuPage = new MainMenuPage();
-    CaseManagementDashboardImp caseManagementDashboardImp =  new CaseManagementDashboardImp();
 
    /* @Autowired
     MainMenuPage mainMenuPage;
@@ -38,9 +34,9 @@ public class PrintEncounterTest extends BaseClass{
 
 
     private String programName = "7124 test";
-    private String serviceName = "newServices134";
-    private String firstName ="Rohit106";
-    private String lastName ="Kumar106";
+    private String serviceName = "newServices137";
+    private String firstName ="Rohit110";
+    private String lastName ="Kumar110";
 
 
     @BeforeClass
@@ -51,21 +47,21 @@ public class PrintEncounterTest extends BaseClass{
 
     @Test
     public void printEncounterTest() throws InterruptedException {
+        AdminDashBoardServiceImp adminDashBoardServiceImp = new AdminDashBoardServiceImp(driver);
+        CaseManagementDashboardImp caseManagementDashboardImp =  new CaseManagementDashboardImp(driver);
+        ClientDetailPageServiceImp clientDetailPageServiceImp = new ClientDetailPageServiceImp(driver);
 
         // make new service with Note field as not required
-
-        AdminDashBoardServiceImp adminDashBoardServiceImp = new AdminDashBoardServiceImp();
-        ClientDetailPageServiceImp clientDetailPageServiceImp = new ClientDetailPageServiceImp();
-        adminDashBoardServiceImp.addNewServiceWithNoteComponent(programName, driver, serviceName);
+        adminDashBoardServiceImp.addNewServiceWithNoteComponent(programName, serviceName);
 
         //Goto CaseManager, make a new client
         Thread.sleep(3000);
         mainMenuPage.gotoCaseManagerDashBoard(driver);
-        caseManagementDashboardImp.addNewClient(driver, programName, firstName, lastName);
+        caseManagementDashboardImp.addNewClient(programName, firstName, lastName);
 
         //Make a new encounter for the newly made service
         Thread.sleep(2000);
-        clientDetailPageServiceImp.createNewEncounter(driver, programName, serviceName);
+        clientDetailPageServiceImp.createNewEncounter(programName, serviceName);
         driver.findElement(saveButtonEncounterElement).click();
 
         //print that service

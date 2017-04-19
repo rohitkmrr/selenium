@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * Created by zemoso on 10/4/17.
  */
 public class AdminDashBoardServiceImp  {
+    private WebDriver driver;
 
     public static By programNameElement = By.id("newProgramId");
     public static By programLegalNameElement = By.xpath("//input[@ng-model='newProgram.legalName']");
@@ -41,7 +42,11 @@ public class AdminDashBoardServiceImp  {
 
 
 
-    public void enterProgramDetailsDuringAddNewProgram(String programName, WebDriver driver) throws InterruptedException {
+    public AdminDashBoardServiceImp(WebDriver driver){
+        this.driver = driver;
+    }
+
+    public void enterProgramDetailsDuringAddNewProgram(String programName) throws InterruptedException {
         driver.findElement(addNewProgramLink).click();
         driver.findElement(programNameElement).clear();
         WebElement programNameInput =  driver.findElement(programNameElement);
@@ -63,7 +68,7 @@ public class AdminDashBoardServiceImp  {
 
 
 
-    public void addServicesDuringAddNewProgram(WebDriver driver) {
+    public void addServicesDuringAddNewProgram() {
         WebElement addNewServiceButton = driver.findElement(addNewServiceLink);
         addNewServiceButton.click();
         WebElement serviceNameInput = driver.findElement(serviceNameInputField);
@@ -94,14 +99,14 @@ public class AdminDashBoardServiceImp  {
 
     }
 
-    public String findLocationOfProgram(WebDriver driver, String programName) {
+    public String findLocationOfProgram(String programName) {
         driver.findElement(By.linkText(programName)).click();
         String location = driver.findElement(By.xpath("//li/span[text()=' Program Location:']/following-sibling::span/ul/li")).getText();
         driver.findElement(By.xpath("//button[@class='close ng-scope']")).click();
         return location;
     }
 
-    public void addNewResourcePool(WebDriver driver, String resourceType, String resourcePoolName ) {
+    public void addNewResourcePool(String resourceType, String resourcePoolName ) {
         driver.findElement(By.xpath("//strong[text()='Add Resource Pool']")).click();
         new Select(driver.findElement(By.xpath("//label[text()='Resource Type']/following-sibling::div/select"))).selectByVisibleText(resourceType);
         driver.findElement(By.xpath("//label[text()='Resource Pool Name']/following-sibling::div/input")).clear();
@@ -109,7 +114,7 @@ public class AdminDashBoardServiceImp  {
         driver.findElement(By.xpath("//button[@ng-click='saveResourcePool()']")).click();
     }
 
-    public void addNewService(String programName, WebDriver driver, String serviceName) {
+    public void addNewService(String programName, String serviceName) {
         driver.findElement(By.linkText(programName)).click();
         driver.findElement(serviceLinkElement).click();
         driver.findElement(addNewServiceLinkInService).click();
@@ -117,7 +122,7 @@ public class AdminDashBoardServiceImp  {
         driver.findElement(serviceNameInputElement).sendKeys(serviceName);
     }
 
-    public void saveNewService(WebDriver driver) {
+    public void saveNewService() {
         WebDriverWait wait=new WebDriverWait(driver, 20);
         driver.findElement(serviceSaveButton).click();
         driver.findElement(closeButtonForToastElement).click();
@@ -125,8 +130,8 @@ public class AdminDashBoardServiceImp  {
         closeButton.click();
     }
 
-    public void addNewServiceWithNoteComponent(String programName, WebDriver driver, String serviceName) throws InterruptedException {
-        addNewService(programName, driver, serviceName);
+    public void addNewServiceWithNoteComponent(String programName, String serviceName) throws InterruptedException {
+        addNewService(programName,serviceName);
         driver.findElement(noteCheckboxElement).click();
         new Select(driver.findElement(noForRequired)).selectByVisibleText("No");
 //        saveNewService(driver);
@@ -150,7 +155,7 @@ public class AdminDashBoardServiceImp  {
 
     }
 
-    public void addNewFormByFormNameAndProgramName(String formName, String programName, WebDriver driver) {
+    public void addNewFormByFormNameAndProgramName(String formName, String programName) {
         WebElement addNewFormLink = driver.findElement(addNewFormLinkElement);
         addNewFormLink.click();
         WebElement selectProgram = driver.findElement(selectProgramElement);
