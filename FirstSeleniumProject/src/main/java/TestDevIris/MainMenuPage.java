@@ -3,8 +3,6 @@ package TestDevIris;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static org.testng.Assert.assertEquals;
-
 /**
  * Created by zemoso on 19/4/17.
  */
@@ -18,18 +16,15 @@ public class MainMenuPage {
     public void gotoAdminDashBoard(WebDriver driver) {
         driver.findElement(mainMenuDropDownButtonElement).click();
         driver.findElement(adminDashboardLink).click();
-        assertEquals(driver.getTitle(), "Admin Dashboard");
     }
 
     public void gotoCaseManagerDashBoard(WebDriver driver) {
         driver.findElement(mainMenuDropDownButtonElement).click();
         driver.findElement(cwDashboardElement).click();
-//        assertEquals(driver.getTitle(), "Admin Dashboard");
     }
 
     public void gotoServiceDeliveryDashBoard(WebDriver driver) {
         driver.findElement(mainMenuDropDownButtonElement).click();
         driver.findElement(serviceDeliveryLink).click();
-        assertEquals(driver.getTitle(), "Service Delivery Dashboard");
     }
 }

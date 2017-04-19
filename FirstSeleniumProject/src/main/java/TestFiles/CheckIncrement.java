@@ -13,6 +13,7 @@ import static org.testng.Assert.assertEquals;
 /**
  * Created by zemoso on 18/4/17.
  */
+// JIRA 7893
 public class CheckIncrement extends BaseClass{
     MainMenuPage mainMenuPage = new MainMenuPage();
 

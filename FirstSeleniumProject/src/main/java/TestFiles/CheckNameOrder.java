@@ -8,7 +8,6 @@ import TestDevIris.MainMenuPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -17,12 +16,14 @@ import static org.testng.Assert.assertEquals;
 /**
  * Created by zemoso on 18/4/17.
  */
+
+// JIRA 7919
 public class CheckNameOrder extends BaseClass{
     PrintEncounterTest printEncounterTest = new PrintEncounterTest();
     AdminDashBoardServiceImp adminDashBoardServiceImp = new AdminDashBoardServiceImp();
     CaseManagementDashboardImp caseManagementDashboardImp = new CaseManagementDashboardImp();
     ClientDetailPageServiceImp clientDetailPageServiceImp = new ClientDetailPageServiceImp();
-    CheckTextBox checkTextBox = new CheckTextBox();
+    CheckBoxTest checkBoxTest = new CheckBoxTest();
     MainMenuPage mainMenuPage = new MainMenuPage();
 
     public static By resourceAssignmentInService = By.xpath("//input[@ng-model='componentList.resourceAssignment']");
@@ -40,13 +41,13 @@ public class CheckNameOrder extends BaseClass{
     public static By resourceTypeInViewResources = By.xpath("//div[2]/select");
     public static By closeViewResourcesModal = By.xpath("//span[text()='View Resources']/following-sibling::button");
 
-    private String serviceName = "newServiceA11";
+    private String serviceName = "newService014";
     private String resourceType = "Bed";
     private String programName = "7124 test";
-    private String firstName ="RohitA7";
-    private String lastName ="KumarA7";
-    private String resourcePoolName ="myPoolA9";
-    private String location1 = "Ortho Paedics";
+    private String firstName ="RohitA10";
+    private String lastName ="KumarA10";
+    private String resourcePoolName ="myPoolA12";
+    private String location = "Ortho Paedics";
 
     @BeforeClass
     public void gotoAdminDashBoard() throws InterruptedException {
@@ -57,7 +58,6 @@ public class CheckNameOrder extends BaseClass{
 
     @Test
     public  void testNameOrder() throws InterruptedException {
-        WebDriverWait wait=new WebDriverWait(driver, 20);
 
         //1. make new service with Resource Assignment as Bed
         adminDashBoardServiceImp.addNewService(programName, driver, serviceName);
@@ -71,9 +71,9 @@ public class CheckNameOrder extends BaseClass{
         driver.findElement(locationAndResourceLink).click();
 
         //4. click on stored location
-        //// TODO: 19/4/17 change it for location
-//        driver.findElement(By.linkText(checkTextBox.location)).click();
-        driver.findElement(By.linkText(location1)).click();
+        // TODO: 19/4/17 change it for location
+//        driver.findElement(By.linkText(checkBoxTest.location)).click();
+        driver.findElement(By.linkText(location)).click();
 
         //5. add new resource pool without restriction
         driver.findElement(addResourcePoolLink).click();
@@ -93,9 +93,9 @@ public class CheckNameOrder extends BaseClass{
 
         // create new Encounter
         clientDetailPageServiceImp.createNewEncounter(driver, programName, serviceName);
-        //// TODO: 19/4/17 change it for Location
-//        new Select(driver.findElement(By.xpath("//label[text()='Resource Location']/following-sibling::div/select"))).selectByVisibleText(checkTextBox.location);
-        new Select(driver.findElement(resourceLocationInEncounter)).selectByVisibleText(location1);
+        // TODO: 19/4/17 change it for Location
+//        new Select(driver.findElement(By.xpath("//label[text()='Resource Location']/following-sibling::div/select"))).selectByVisibleText(checkBoxTest.location);
+        new Select(driver.findElement(resourceLocationInEncounter)).selectByVisibleText(location);
         new Select(driver.findElement(resourcePoolNameInEncounter)).selectByVisibleText(resourcePoolName);
         driver.findElement(By.xpath("//a[text()='Check-in Now']")).click();
         driver.findElement(printEncounterTest.saveButtonEncounterElement).click();

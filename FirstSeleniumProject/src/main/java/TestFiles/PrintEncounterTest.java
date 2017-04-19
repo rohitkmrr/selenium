@@ -1,10 +1,13 @@
 package TestFiles;
 
 import LocalServer.BaseClass;
-import TestDevIris.*;
+import TestDevIris.AdminDashBoardServiceImp;
+import TestDevIris.CaseManagementDashboardImp;
+import TestDevIris.ClientDetailPageServiceImp;
+import TestDevIris.MainMenuPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -13,12 +16,20 @@ import static org.testng.Assert.assertNotEquals;
 /**
  * Created by zemoso on 11/4/17.
  */
+
+// JIRA 7891
+@ContextConfiguration(locations = {"/applicationContext.xml"})
 public class PrintEncounterTest extends BaseClass{
 
-    @Autowired
-    AdminDashBoardService adminDashBoardService;
     MainMenuPage mainMenuPage = new MainMenuPage();
     CaseManagementDashboardImp caseManagementDashboardImp =  new CaseManagementDashboardImp();
+
+   /* @Autowired
+    MainMenuPage mainMenuPage;
+
+    @Autowired
+    CaseManagementDashboardImp caseManagementDashboardImp;*/
+
 
     public static By saveButtonEncounterElement = By.xpath("(//button[@class='btn btn-default ar pull-right'])");
     public static By printEncounterElement = By.id("printEncNotes");
@@ -27,9 +38,9 @@ public class PrintEncounterTest extends BaseClass{
 
 
     private String programName = "7124 test";
-    private String serviceName = "newServicesA13";
-    private String firstName ="Rohit102";
-    private String lastName ="Kumar102";
+    private String serviceName = "newServices134";
+    private String firstName ="Rohit106";
+    private String lastName ="Kumar106";
 
 
     @BeforeClass
@@ -48,10 +59,6 @@ public class PrintEncounterTest extends BaseClass{
         adminDashBoardServiceImp.addNewServiceWithNoteComponent(programName, driver, serviceName);
 
         //Goto CaseManager, make a new client
-
-        /*WebDriverWait wait=new WebDriverWait(driver, 20);
-        WebElement dropdownButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.dropdown_button")));
-        dropdownButton.click();*/
         Thread.sleep(3000);
         mainMenuPage.gotoCaseManagerDashBoard(driver);
         caseManagementDashboardImp.addNewClient(driver, programName, firstName, lastName);

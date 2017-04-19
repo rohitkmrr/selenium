@@ -13,7 +13,9 @@ import static org.testng.Assert.assertEquals;
 /**
  * Created by zemoso on 18/4/17.
  */
-public class CheckTextBox extends BaseClass{
+
+// JIRA 7921
+public class CheckBoxTest extends BaseClass{
     MainMenuPage mainMenuPage = new MainMenuPage();
 
 
@@ -40,7 +42,7 @@ public class CheckTextBox extends BaseClass{
         //2. For a program, check its location and store it in a variable
         String programName = "7124 test";
         String resourceType = "Bed";
-        String resourcePoolName = "bed25";
+        String resourcePoolName = "bed28";
 
         location = adminDashBoardServiceImp.findLocationOfProgram(driver, programName);
         //3. click on Location and Resources

@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Created by zemoso on 10/4/17.
  */
-public class CaseManagementDashboardImp implements CaseManagementDashboard {
+public class CaseManagementDashboardImp  {
 
     private static By addNewClientElement = By.id("newClient");
     private static By firstNameElementInAddClient = By.id("email");

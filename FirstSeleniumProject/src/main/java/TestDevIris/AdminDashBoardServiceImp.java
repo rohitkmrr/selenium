@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by zemoso on 10/4/17.
  */
-public class AdminDashBoardServiceImp implements AdminDashBoardService {
+public class AdminDashBoardServiceImp  {
 
     public static By programNameElement = By.id("newProgramId");
     public static By programLegalNameElement = By.xpath("//input[@ng-model='newProgram.legalName']");
