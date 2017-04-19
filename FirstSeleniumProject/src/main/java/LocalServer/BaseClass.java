@@ -4,11 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
 
 /**
@@ -23,6 +21,16 @@ public class BaseClass {
     public static WebDriver getDriverInstance() {
         return driver;
     }
+    private static By userNameElement = By.id("username");
+    private static By passwordElement = By.id("pWord");
+    private static By loginButtonElement = By.id("buttonLogin");
+    private static By verifyByEmail = By.id("pin-process_submit");
+    private static By submitPin =By.id("pin-verify_submit");
+    private static By inputPin =By.id("pin-verify_pin");
+    private static By mainMenuDropdown =By.xpath("//div[@class=\"dropdown\"]/div/button");
+    private static By adminDashboardLink =By.linkText("Administration");
+    private static By alreadyLoginCancel =By.xpath("//button[@onclick='alreadyLoggedIn_cancel()']");
+    private static By alreadyLoginSubmit = By.xpath("//button[@onclick='alreadyLoggedIn_submit()']");
 
 
     @BeforeSuite
@@ -35,58 +43,30 @@ public class BaseClass {
         driver.get(baseUrl);
 
         // login username and password
-        WebElement userName = driver.findElement(By.id("username"));
+        WebElement userName = driver.findElement(userNameElement);
         userName.sendKeys("sreekanth");
-        WebElement password = driver.findElement(By.id("pWord"));
+        WebElement password = driver.findElement(passwordElement);
         password.sendKeys("sreekanth12");
-        WebElement loginButton = driver.findElement(By.id("buttonLogin"));
+        WebElement loginButton = driver.findElement(loginButtonElement);
         loginButton.click();
 
-        /*// if already logged In
-        if(driver.findElements(By.xpath("//h4[@id=\"modal_already-logged-in_label\"]/strong")).size() >0){
+        // if already logged In
+        if(isElementPresent(alreadyLoginCancel)) {
             System.out.println("Continuing to already login");
-            driver.findElement(By.xpath("//div[@id=\"modal_already-logged-in\"]/div/div/div[@class=\"modal-footer\"]/button[@class=\"btn btn-default\"]")).click();
-        }*/
-
-        /*if(driver.findElement(By.xpath("//button[@onclick='alreadyLoggedIn_cancel()']")).isDisplayed()){
-            System.out.println("Continuing to already login");
-            driver.findElement(By.xpath("//button[@onclick='alreadyLoggedIn_submit()']")).click();
-        }*/
-
-        if(isElementPresent(By.xpath("//button[@onclick='alreadyLoggedIn_cancel()']"))) {
-            System.out.println("Continuing to already login");
-            driver.findElement(By.xpath("//button[@onclick='alreadyLoggedIn_submit()']")).click();
+            driver.findElement(alreadyLoginSubmit).click();
         }
 
         // if verify your identity modal appear
-//        driver.findElement(By.xpath("//div[@class=\"modal-footer\"]/button[@id=\"pin-process_submit\"]")).click();
-        driver.findElement(By.id("pin-process_submit")).click();
+        driver.findElement(verifyByEmail).click();
 
         // enter random pin
-        driver.findElement(By.id("pin-verify_pin")).clear();
-        driver.findElement(By.id("pin-verify_pin")).sendKeys("1234");
-        driver.findElement(By.id("pin-verify_submit")).click();
-        driver.findElement(By.xpath("//div[@class=\"dropdown\"]/div/button")).click();
-        driver.findElement(By.linkText("Administration")).click();
+        driver.findElement(inputPin).clear();
+        driver.findElement(inputPin).sendKeys("1234");
+        driver.findElement(submitPin).click();
+        driver.findElement(mainMenuDropdown).click();
+        driver.findElement(adminDashboardLink).click();
     }
 
-    public  void createEncounter() {
-        driver.findElement(By.xpath("//div[@class=\"dropdown open hover\"]/div/button")).click();
-        //goto case manager
-        driver.findElement(By.linkText("Case Management")).click();
-        assertEquals(driver.getTitle(), "Case Manager Dashboard");
-        // select program and client
-        driver.findElement(By.cssSelector("span.k-input.ng-scope")).click();
-        driver.findElement(By.xpath("//ul[@id='programFilterId_listbox']/li[7]")).click();
-        driver.findElement(By.cssSelector("a[title=\"client, social  \"] > span > span.ng-binding")).click();
-        // make new encounter
-        driver.findElement(By.linkText("New Encounter")).click();
-        new Select(driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div/div/select"))).selectByVisibleText("Food Coupons");
-        new Select(driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[2]/div[2]/div/select"))).selectByVisibleText("s9");
-        driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[5]/div[2]/spin-edit/div/input")).clear();
-        driver.findElement(By.xpath("//div[@id='encounterMainDiv']/div/div/div[5]/div[2]/spin-edit/div/input")).sendKeys("1");
-        driver.findElement(By.xpath("(//button[@class='btn btn-default ar pull-right'])")).click();
-    }
 
     public boolean isElementPresent(By by) {
         try {

@@ -1,6 +1,7 @@
 package TestFiles;
 
 import LocalServer.BaseClass;
+import TestDevIris.MainMenuPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -13,8 +14,8 @@ import static org.testng.Assert.assertEquals;
  * Created by zemoso on 18/4/17.
  */
 public class CheckIncrement extends BaseClass{
-    PrintEncounterTest printEncounterTest = new PrintEncounterTest();
-    public static By serviceDeliveryLink = By.linkText("Service Delivery");
+    MainMenuPage mainMenuPage = new MainMenuPage();
+
     public static By addServiceButton = By.xpath("(//button[@type='button'])[7]");
     public static By programName1 = By.xpath("//div[@id='serviceDelivery']/div/div/div[2]/div[3]/div/select");
     public static By serviceName1 = By.xpath("//div[@id='serviceDelivery']/div/div/div[2]/div[3]/div[2]/select");
@@ -27,9 +28,7 @@ public class CheckIncrement extends BaseClass{
     @BeforeClass
     public void gotoAdminDashBoard() {
         WebDriver driver = getDriverInstance();
-        driver.findElement(printEncounterTest.mainMenuDropDownButtonElement).click();
-        driver.findElement(serviceDeliveryLink).click();
-        assertEquals(driver.getTitle(), "Service Delivery Dashboard");
+        mainMenuPage.gotoServiceDeliveryDashBoard(driver);
     }
 
 

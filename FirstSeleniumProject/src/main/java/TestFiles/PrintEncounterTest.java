@@ -1,17 +1,13 @@
 package TestFiles;
 
 import LocalServer.BaseClass;
-import TestDevIris.AdminDashBoardService;
-import TestDevIris.AdminDashBoardServiceImp;
-import TestDevIris.CaseManagementDashboardImp;
-import TestDevIris.ClientDetailPageServiceImp;
+import TestDevIris.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
 
 /**
@@ -21,11 +17,8 @@ public class PrintEncounterTest extends BaseClass{
 
     @Autowired
     AdminDashBoardService adminDashBoardService;
-
-    public static By mainMenuDropDownButtonElement = By.xpath("//div[@class=\"dropdown open hover\"]/div/button");
-    public static By adminDashboardLink = By.linkText("Administration");
-    public static By menuDropDownElement = By.cssSelector("button.dropdown_button");
-    public static By cwDashboardElement = By.linkText("Case Management");
+    MainMenuPage mainMenuPage = new MainMenuPage();
+    CaseManagementDashboardImp caseManagementDashboardImp =  new CaseManagementDashboardImp();
 
     public static By saveButtonEncounterElement = By.xpath("(//button[@class='btn btn-default ar pull-right'])");
     public static By printEncounterElement = By.id("printEncNotes");
@@ -34,17 +27,15 @@ public class PrintEncounterTest extends BaseClass{
 
 
     private String programName = "7124 test";
-    private String serviceName = "newServicesF";
-    private String firstName ="RohitAA";
-    private String lastName ="kumarAA";
+    private String serviceName = "newServicesA13";
+    private String firstName ="Rohit102";
+    private String lastName ="Kumar102";
 
 
     @BeforeClass
     public void gotoAdminDashBoard() {
         WebDriver driver = getDriverInstance();
-        driver.findElement(mainMenuDropDownButtonElement).click();
-        driver.findElement(adminDashboardLink).click();
-        assertEquals(driver.getTitle(), "Admin Dashboard");
+        mainMenuPage.gotoAdminDashBoard(driver);
     }
 
     @Test
@@ -62,9 +53,7 @@ public class PrintEncounterTest extends BaseClass{
         WebElement dropdownButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.dropdown_button")));
         dropdownButton.click();*/
         Thread.sleep(3000);
-        driver.findElement(menuDropDownElement).click();
-        driver.findElement(cwDashboardElement).click();
-        CaseManagementDashboardImp caseManagementDashboardImp =  new CaseManagementDashboardImp();
+        mainMenuPage.gotoCaseManagerDashBoard(driver);
         caseManagementDashboardImp.addNewClient(driver, programName, firstName, lastName);
 
         //Make a new encounter for the newly made service

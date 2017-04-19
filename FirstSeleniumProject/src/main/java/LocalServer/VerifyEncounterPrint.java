@@ -23,7 +23,7 @@ public class VerifyEncounterPrint extends BaseClass {
     @Test
     public void testPrintEncounter() throws Exception {
 //        driver.findElement(By.xpath("//table[@id='clientListTable']/tbody/tr[2]/td/a/span/span")).click();
-        createEncounter();
+//        createEncounter();
         String winHandleBefore = driver.getWindowHandle();
         Thread.sleep(2000);
         driver.findElement(By.id("printEncNotes")).click();

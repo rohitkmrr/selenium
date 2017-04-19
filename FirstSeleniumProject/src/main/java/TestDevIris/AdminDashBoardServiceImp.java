@@ -120,6 +120,7 @@ public class AdminDashBoardServiceImp implements AdminDashBoardService {
     public void saveNewService(WebDriver driver) {
         WebDriverWait wait=new WebDriverWait(driver, 20);
         driver.findElement(serviceSaveButton).click();
+        driver.findElement(closeButtonForToastElement).click();
         WebElement closeButton = wait.until(ExpectedConditions.visibilityOfElementLocated(closeServiceButton));
         closeButton.click();
     }

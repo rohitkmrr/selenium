@@ -15,5 +15,9 @@
             <class name="TestFiles.CheckTextBox" />
         </classes>
     </test>
-
+    <test name="Test four" >
+        <classes>
+            <class name="TestFiles.CheckNameOrder" />
+        </classes>
+    </test>
 </suite>

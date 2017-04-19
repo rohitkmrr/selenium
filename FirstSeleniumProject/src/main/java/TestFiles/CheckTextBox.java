@@ -2,6 +2,7 @@ package TestFiles;
 
 import LocalServer.BaseClass;
 import TestDevIris.AdminDashBoardServiceImp;
+import TestDevIris.MainMenuPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
@@ -13,7 +14,9 @@ import static org.testng.Assert.assertEquals;
  * Created by zemoso on 18/4/17.
  */
 public class CheckTextBox extends BaseClass{
-    PrintEncounterTest printEncounterTest = new PrintEncounterTest();
+    MainMenuPage mainMenuPage = new MainMenuPage();
+
+
     public String location ="";
     public static By locationAndResourcesLink = By.linkText("Locations and Resources");
     public static By editResourcePool = By.linkText("Edit");
@@ -27,9 +30,7 @@ public class CheckTextBox extends BaseClass{
     @BeforeClass
     public void gotoAdminDashBoard() {
         WebDriver driver = getDriverInstance();
-        driver.findElement(printEncounterTest.mainMenuDropDownButtonElement).click();
-        driver.findElement(printEncounterTest.adminDashboardLink).click();
-        assertEquals(driver.getTitle(), "Admin Dashboard");
+        mainMenuPage.gotoAdminDashBoard(driver);
     }
 
     @Test
@@ -39,7 +40,7 @@ public class CheckTextBox extends BaseClass{
         //2. For a program, check its location and store it in a variable
         String programName = "7124 test";
         String resourceType = "Bed";
-        String resourcePoolName = "bed19";
+        String resourcePoolName = "bed25";
 
         location = adminDashBoardServiceImp.findLocationOfProgram(driver, programName);
         //3. click on Location and Resources
