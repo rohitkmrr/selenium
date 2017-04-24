@@ -23,9 +23,9 @@ public class PrintEncounterTest extends LoginPage {
     public static By noteTextInPDF = By.xpath("//div/div[23]");
 
     private String programName = "7124 test";
-    private String serviceName = "newServices141";
-    private String firstName ="Rohit114";
-    private String lastName ="Kumar114";
+    private String serviceName = "newServices211";
+    private String firstName ="Rohit121";
+    private String lastName ="Kumar121";
 
 
     @BeforeClass

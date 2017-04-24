@@ -9,11 +9,11 @@ import org.openqa.selenium.WebDriver;
 public class CaseManagementDashboardService {
     private WebDriver driver;
 
-    private static By addNewClientElement = By.id("newClient");
-    private static By firstNameElementInAddClient = By.id("email");
-    private static By lastNameElementInAddClient = By.xpath("(//input[@id='email'])[2]");
-    private static By continueButton = By.xpath("//button[@ng-click='broadCastContinueEvent();']");
-    private static By programSelectDropdownElement = By.xpath("//div[@id='programSelection']/div/span/span/span");
+    public static By addNewClientElement = By.id("newClient");
+    public static By firstNameElementInAddClient = By.id("email");
+    public static By lastNameElementInAddClient = By.xpath("(//input[@id='email'])[2]");
+    public static By continueButton = By.xpath("//button[@ng-click='broadCastContinueEvent();']");
+    public static By programSelectDropdownElement = By.xpath("//div[@id='programSelection']/div/span/span/span");
 
     public CaseManagementDashboardService(WebDriver driver){
         this.driver = driver;

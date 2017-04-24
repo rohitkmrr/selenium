@@ -35,12 +35,12 @@ public class CheckNameOrder extends LoginPage {
     public static By resourceTypeInViewResources = By.xpath("//div[2]/select");
     public static By closeViewResourcesModal = By.xpath("//span[text()='View Resources']/following-sibling::button");
 
-    private String serviceName = "newService022";
+    private String serviceName = "newService123";
     private String resourceType = "Bed";
     private String programName = "7124 test";
-    private String firstName ="RohitA17";
-    private String lastName ="KumarA17";
-    private String resourcePoolName ="myPoolA17";
+    private String firstName ="RohitA20";
+    private String lastName ="KumarA20";
+    private String resourcePoolName ="myPoolA20";
     private String location = "Ortho Paedics";
 
     @BeforeClass

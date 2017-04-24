@@ -151,7 +151,7 @@ public class AdminDashBoardService {
     }
 
     public void addNewFormByFormNameAndProgramName(String formName, String programName) {
-        WebElement addNewFormLink = driver.findElement(addNewFormLinkElement);
+        /*WebElement addNewFormLink = driver.findElement(addNewFormLinkElement);
         addNewFormLink.click();
         WebElement selectProgram = driver.findElement(selectProgramElement);
         selectProgram.click();
@@ -169,7 +169,26 @@ public class AdminDashBoardService {
         //Save form
         driver.findElement(selectActive).click();
         WebElement saveButtonElement = driver.findElement(saveFormButton);
-        saveButtonElement.click();
+        saveButtonElement.click();*/
+
+        driver.findElement(By.xpath("//button[@ng-click='addNewForm()']")).click();
+        driver.findElement(By.xpath("//span[text()='Select Program:']/following-sibling::span/span/span")).click();
+        driver.findElement(By.xpath("//li[text()='"+programName+"']")).click();
+        driver.findElement(By.xpath("//button[text()='Select']")).click();
+        driver.findElement(By.name("formName")).click();
+        driver.findElement(By.name("formName")).clear();
+        driver.findElement(By.name("formName")).sendKeys(formName);
+        new Select(driver.findElement(By.xpath("//label[text()='Form Status']/following-sibling::select"))).selectByVisibleText("Active");
+        driver.findElement(By.xpath("//label[@ng-click='checkAndSubmit();']")).click();
+        /*driver.findElement(By.xpath("//button[@ng-click='addNewForm()']")).click();
+        driver.findElement(By.xpath("//span[text()='Select Program:']/following-sibling::span/span/span")).click();
+        driver.findElement(By.xpath("//li[text()='7124 test']")).click();
+        driver.findElement(By.xpath("//button[text()='Select']")).click();
+        driver.findElement(By.name("formName")).click();
+        driver.findElement(By.name("formName")).clear();
+        driver.findElement(By.name("formName")).sendKeys("form2");
+        new Select(driver.findElement(By.xpath("//label[text()='Form Status']/following-sibling::select"))).selectByVisibleText("Active");
+        driver.findElement(By.xpath("//label[@ng-click='checkAndSubmit();']")).click();*/
 
     }
 

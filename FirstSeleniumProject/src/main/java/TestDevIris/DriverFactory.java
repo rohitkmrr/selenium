@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class DriverFactory {
     public static WebDriver createDriver() {
         WebDriver driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         return driver;
     }
 }

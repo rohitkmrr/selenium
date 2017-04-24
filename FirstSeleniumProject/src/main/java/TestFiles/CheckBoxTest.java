@@ -42,7 +42,7 @@ public class CheckBoxTest extends LoginPage {
         //2. For a program, check its location and store it in a variable
         String programName = "7124 test";
         String resourceType = "Bed";
-        String resourcePoolName = "bed34";
+        String resourcePoolName = "bed40";
 
         location = adminDashBoardService.findLocationOfProgram(programName);
         //3. click on Location and Resources
