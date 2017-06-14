@@ -47,6 +47,7 @@ public class PrintEncounterTest extends LoginPage {
         Thread.sleep(3000);
         mainMenuService.gotoCaseManagerDashBoard(driver);
         caseManagementDashboardService.addNewClient(programName, firstName, lastName);
+        caseManagementDashboardService.saveEnrollment();
 
         //Make a new encounter for the newly made service
         Thread.sleep(2000);

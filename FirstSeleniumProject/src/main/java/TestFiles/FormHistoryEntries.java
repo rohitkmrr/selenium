@@ -1,7 +1,11 @@
 package TestFiles;
 
 import TestDevIris.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -35,12 +39,12 @@ public class FormHistoryEntries extends LoginPage {
         String form4 = "form4";
         String form5 = "form5";
         String exitForm = "exit form";
-        String firstName = "First02";
-        String lastName = "Last02";
+        String firstName = "First23";
+        String lastName = "Last23";
 
         String newProgramForEnrollment = "7258 Test";
 
-        //// TODO: 20/4/17  cannot select intake forms in multiselect
+        //// TODO: 20/4/17  cannot select intake forms in multiselect so it is assumed that selected program has 2 forms(form1, form2) as intake forms.
         /*//make 4 forms for a program
         adminDashBoardService.addNewFormByFormNameAndProgramName(form1, program);
         adminDashBoardService.addNewFormByFormNameAndProgramName(form2, program);
@@ -58,11 +62,16 @@ public class FormHistoryEntries extends LoginPage {
 
         //4. close the program details modal
 */
+
         // make a new client for that program
+        WebDriverWait wait=new WebDriverWait(driver, 20);
         mainMenuService.gotoCaseManagerDashBoard(driver);
-        caseManagementDashboardService.addNewClient(program, firstName, lastName);
-        Thread.sleep(8000);
+//        caseManagementDashboardService.addNewClient(program, firstName, lastName);
+        caseManagementDashboardService.addNewClientNew(program, firstName, lastName, form2);
         driver.findElement(caseManagementDashboardService.continueButton).click();
+        WebElement secondForm = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[@ng-repeat='field_item in programFormList']/span[contains(text(),'"+form1+"')]")));
+        caseManagementDashboardService.saveEnrollment();
+//        Thread.sleep(8000);
 
         //View Fom History [ 2 entries with both as project entries]
         Map<String, Integer> map1 = clientDetailPageService.viewClientHistory(program, form1);

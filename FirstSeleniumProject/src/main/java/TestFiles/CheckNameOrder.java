@@ -87,6 +87,7 @@ public class CheckNameOrder extends LoginPage {
         mainMenuService.gotoCaseManagerDashBoard(driver);
         // add new client
         caseManagementDashboardService.addNewClient(programName, firstName, lastName);
+        caseManagementDashboardService.saveEnrollment();
 
         // create new Encounter
         clientDetailPageService.createNewEncounter(programName, serviceName);

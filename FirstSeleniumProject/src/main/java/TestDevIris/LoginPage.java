@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import java.util.concurrent.TimeUnit;
+
 import static org.testng.Assert.fail;
 
 /**
@@ -31,10 +33,12 @@ public class LoginPage {
     private static By adminDashboardLink =By.linkText("Administration");
     private static By alreadyLoginCancel =By.xpath("//button[@onclick='alreadyLoggedIn_cancel()']");
     private static By alreadyLoginSubmit = By.xpath("//button[@onclick='alreadyLoggedIn_submit()']");
+    private static By privacyPolicyRadioButton = By.id("privacyPolicy");
+    private static By privacyPolicyOkButton = By.xpath("//button[text()='Ok']");
 
 
     @BeforeSuite
-    public void setUp() {
+    public void setUp() throws InterruptedException{
         //// TODO: 18/4/17 to get firefox browser
         System.out.println("launching firefox browser");
         // launch firefox
@@ -42,19 +46,31 @@ public class LoginPage {
         driver = DriverFactory.createDriver();
         driver.get(baseUrl);
 
+        // Confirm Privacy abd Confidentiality Policy
+        Thread.sleep(2000);
+        WebElement radioBtn = driver.findElement(privacyPolicyRadioButton);
+        radioBtn.click();
+        driver.findElement(privacyPolicyOkButton).click();
+
+
         // login username and password
         WebElement userName = driver.findElement(userNameElement);
         userName.sendKeys("sreekanth");
         WebElement password = driver.findElement(passwordElement);
         password.sendKeys("sreekanth12");
         WebElement loginButton = driver.findElement(loginButtonElement);
+        Thread.sleep( 1000 );
         loginButton.click();
 
         // if already logged In
+        turnOffImplicitWaits();
         if(isElementPresent(alreadyLoginCancel)) {
+            turnOnImplicitWaits();
             System.out.println("Continuing to already login");
             driver.findElement(alreadyLoginSubmit).click();
         }
+        else
+            turnOnImplicitWaits();
 
         // if verify your identity modal appear
         driver.findElement(verifyByEmail).click();
@@ -75,6 +91,14 @@ public class LoginPage {
         } catch (NoSuchElementException e) {
             return false;
         }
+    }
+
+    public static void turnOffImplicitWaits() {
+        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+    }
+
+    public static void turnOnImplicitWaits() {
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @AfterSuite

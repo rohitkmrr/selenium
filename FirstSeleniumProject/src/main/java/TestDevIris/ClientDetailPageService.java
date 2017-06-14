@@ -6,7 +6,6 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by zemoso on 10/4/17.
@@ -49,14 +48,14 @@ public class ClientDetailPageService {
     }
 
     public void newUpdate(String programName, String formName) throws InterruptedException {
-        turnOffImplicitWaits();
+        LoginPage.turnOffImplicitWaits();
         if(!driver.findElement(formsLinkOnSlider).isDisplayed()) {
-            turnOnImplicitWaits();
+            LoginPage.turnOnImplicitWaits();
             driver.findElement(rightSliderButton).click();
             driver.findElement(formsLinkOnSlider).click();
         }
         else
-            turnOnImplicitWaits();
+            LoginPage.turnOnImplicitWaits();
         Thread.sleep(1000);
         driver.findElement(newUpdateLink).click();
         driver.findElement(selectProgramInNewUpdate).click();
@@ -73,14 +72,14 @@ public class ClientDetailPageService {
     }
 
     public void showFormHistory() throws InterruptedException {
-        turnOffImplicitWaits();
+        LoginPage.turnOffImplicitWaits();
         if(!driver.findElement(formsLinkOnSlider).isDisplayed()) {
-            turnOnImplicitWaits();
+            LoginPage.turnOnImplicitWaits();
             driver.findElement(rightSliderButton).click();
             driver.findElement(formsLinkOnSlider).click();
         }
         else
-            turnOnImplicitWaits();
+            LoginPage.turnOnImplicitWaits();
         Thread.sleep(1000);
         driver.findElement(uploadNewDocumentLink).click();
 
@@ -117,11 +116,11 @@ public class ClientDetailPageService {
         showFormHistory();
         Thread.sleep(2000);
         Map<String , Integer> map = new HashMap<String, Integer>();
-        turnOffImplicitWaits();
+        LoginPage.turnOffImplicitWaits();
         int projectEntry = driver.findElements(By.xpath("//table[@class='table columnData datapadd']/tbody/tr/td/span[text()='"+programName+"']/../following-sibling::td/div/div/span[text()='"+formName+"']/following-sibling::span[text()='Project entry']")).size();
         int projectUpdate = driver.findElements(By.xpath("//table[@class='table columnData datapadd']/tbody/tr/td/span[text()='"+programName+"']/../following-sibling::td/div/div/span[text()='"+formName+"']/following-sibling::span[text()='Project update']")).size();
         int projectExit = driver.findElements(By.xpath("//table[@class='table columnData datapadd']/tbody/tr/td/span[text()='"+programName+"']/../following-sibling::td/div/div/span[text()='"+formName+"']/following-sibling::span[text()='Project exit']")).size();
-        turnOnImplicitWaits();
+        LoginPage.turnOnImplicitWaits();
         map.put("Project entry", projectEntry);
         map.put("Project update", projectUpdate);
         map.put("Project exit", projectExit);
@@ -131,13 +130,7 @@ public class ClientDetailPageService {
         return map;
     }
 
-    private void turnOffImplicitWaits() {
-        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-    }
 
-    private void turnOnImplicitWaits() {
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    }
 
     public void closeRightSlider() throws InterruptedException {
         Thread.sleep(2000);
