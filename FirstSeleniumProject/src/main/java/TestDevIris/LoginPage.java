@@ -39,7 +39,6 @@ public class LoginPage {
 
     @BeforeSuite
     public void setUp() throws InterruptedException{
-        //// TODO: 18/4/17 to get firefox browser
         System.out.println("launching firefox browser");
         // launch firefox
         System.setProperty("webdriver.firefox.marionette", driverPath);

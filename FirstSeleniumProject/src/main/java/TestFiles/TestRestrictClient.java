@@ -1,18 +1,17 @@
-package ChromeLogin;
+package TestFiles;
 
 import TestDevIris.LoginPage;
+import TestDevIris.MainMenuService;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 /**
  * Created by zemoso on 14/6/17.
- *
- * Assumption: This test case assume that the client name you are providing is not restricted.
- *
- * This test case will restrict the particular client from a program(specified by user) and
- * from All Services(default) from a startDate to endDate (both are specified by user).
- *
  */
-public class RestrictClientTest extends LoginPage{
-   /* MainMenuService mainMenuService = new MainMenuService();
+public class TestRestrictClient extends LoginPage{
+    MainMenuService mainMenuService = new MainMenuService();
     public static By clientDetailDropdown = By.id("id_client_detail_options");
     public static By restrictClientLink = By.linkText("Restrict Client");
     public static By addNewRestrictionButton = By.linkText("Add New");
@@ -34,8 +33,8 @@ public class RestrictClientTest extends LoginPage{
     @Test
     public void ClientRestriction() throws InterruptedException{
         //Select a client name which is not restricted
-        String firstName = "Ftvgy";
-        String secondName = "Ygvbuh";
+        String firstName = "Member1";
+        String secondName = "Mem1";
         //select program name
         String programName = "All programs";
         //select startDate and endDate
@@ -63,6 +62,5 @@ public class RestrictClientTest extends LoginPage{
         //Done
         driver.findElement(doneAddRestriction).click();
         driver.findElement(closeButtonForRestriction).click();
-    }*/
-
+    }
 }
