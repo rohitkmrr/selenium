@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://in.search.yahoo.com/" />
+<title>encounterMinuteTest</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">encounterMinuteTest</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://localhost:8080/phhs/cwDashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Case Manager Dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//table[@id='clientListTable']/tbody/tr/td/a/span/span[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=New Encounter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>4000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='encounterMainDiv']/div/div/div[2]/div[2]/div/select</td>
+	<td>label=S2</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>8000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>//div[@id='encounterMainDiv']/div/div/div[5]/div[2]/spin-edit/div/input</td>
+	<td>01</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[3]/button[3]</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

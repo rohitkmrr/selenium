@@ -1,0 +1,972 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://in.search.yahoo.com/" />
+<title>mega1</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">mega1</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://localhost:8080/phhs/cwDashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Case Manager Dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=newClient</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=email</td>
+	<td>new cl1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@id='email'])[2]</td>
+	<td>cl11</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[30]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[30]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=cert0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[30]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='programSelection']/div/span/span/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[19]/div/ul/li[7]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[30]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[23]</td>
+	<td>Middi</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[24]</td>
+	<td>Maddi</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_0']/div/div[2]/div/div[2]/div[2]/div/div/select</td>
+	<td>label=III</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='1'])[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[28]</td>
+	<td>111-11-1111</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_0']/div/div[4]/div/div/select</td>
+	<td>label=Full name reported</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[28]</td>
+	<td>311-11-1111</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_0']/div/div[4]/div[2]/div/select</td>
+	<td>label=Full SSN reported</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_0']/div/div[3]/div[3]/div/select</td>
+	<td>label=Client refused</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.k-item.k-state-hover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='collapse_1']/div/div[2]/div/div/div/div/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.k-item.k-state-hover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_1']/div/div[2]/div[2]/div/select</td>
+	<td>label=Hispanic/Latino</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='1'])[7]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_1']/div/div[2]/div[3]/div/select</td>
+	<td>label=Transgender male to female</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='2'])[8]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value=''])[15]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_1']/div/div[2]/div[4]/div/select</td>
+	<td>label=Lesbian</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_1']/div/div[2]/div[4]/div/select</td>
+	<td>label=Client doesn't know</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[35]</td>
+	<td>add2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[36]</td>
+	<td>add2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[37]</td>
+	<td>city</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_2']/div/div[2]/div/div[2]/div/div[4]/div/select</td>
+	<td>label=California</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='4'])[9]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[39]</td>
+	<td>32452</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_2']/div/div[2]/div/div[2]/div[2]/div[2]/div/select</td>
+	<td>label=Bandera</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='9'])[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_2']/div/div[2]/div/div[2]/div[2]/div[3]/div/select</td>
+	<td>label=Incomplete or estimated address</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='1'])[12]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_2']/div/div[2]/div/div[2]/div[2]/div[4]/div/select</td>
+	<td>label=Permanent</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@type='text'])[44]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_2']/div/div[3]/div[4]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[47]</td>
+	<td>2012</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[48]</td>
+	<td>2013</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_2']/div/div[4]/div/div[2]/div/div[3]/div/select</td>
+	<td>label=Marines</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_2']/div/div[4]/div/div[2]/div/div[4]/div/select</td>
+	<td>label=Under other than Honorable conditions(OTH)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='2'])[14]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_2']/div/div[4]/div/div[2]/div[2]/div/div/select</td>
+	<td>label=YES</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[16]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@type='text'])[52]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[52]</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_2']/div/div[4]/div/div[2]/div[2]/div[3]/div/select</td>
+	<td>label=NO</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='1'])[18]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value=''])[25]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_2']/div/div[4]/div/div[2]/div[2]/div[4]/div/select</td>
+	<td>label=YES</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_2']/div/div[4]/div/div[2]/div[3]/div/div/select</td>
+	<td>label=No</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='1'])[20]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_2']/div/div[5]/div/div[2]/div/div/div[2]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[21]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_2']/div/div[5]/div/div[2]/div[2]/div/div[2]/div/select</td>
+	<td>label=Client doesn't know</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='2'])[17]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_2']/div/div[5]/div/div[2]/div[3]/div/div[2]/div/select</td>
+	<td>label=No</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_2']/div/div[5]/div/div[2]/div[4]/div/div[2]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[24]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_3']/div/div[2]/div/div[2]/div/div/div/select</td>
+	<td>label=Institutional Situation</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='1'])[30]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[30]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_3']/div/div[2]/div/div[2]/div/div[2]/div/select</td>
+	<td>label=Jail, prison or juvenile detention facility</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_3']/div/div[3]/div/div/select</td>
+	<td>label=Ortho Paedics</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[31]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_4']/div/div[2]/div/div/select</td>
+	<td>label=Category 4 - Fleeing domestic violence</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='3'])[25]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_4']/div/div[2]/div[2]/div/select</td>
+	<td>label=Client refused</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='3'])[26]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_4']/div/div[2]/div[2]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_4']/div/div[2]/div[3]/div/select</td>
+	<td>label=Service setting, non-residential</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_5']/div/div[2]/div/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[35]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_5']/div/div[2]/div[2]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[36]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[84]</td>
+	<td>12121212</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[87]</td>
+	<td>34343434</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[90]</td>
+	<td>454545</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_5']/div/div[4]/div/div[2]/div/div/div[2]/div/select</td>
+	<td>label=YES</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[52]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[131]</td>
+	<td>234234</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_5']/div/div[4]/div/div[2]/div[3]/div/div[2]/div/select</td>
+	<td>label=YES</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[56]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_6']/div/div[2]/div/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[76]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_6']/div/div[3]/div/div[2]/div/div/div[2]/div/select</td>
+	<td>label=YES</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[77]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_6']/div/div[3]/div/div[2]/div[2]/div/div[2]/div/select</td>
+	<td>label=YES</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[80]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_6']/div/div[3]/div/div[2]/div[3]/div/div[2]/div/select</td>
+	<td>label=YES</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[83]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[2]/div/div/select</td>
+	<td>label=Very Good</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[2]/div[2]/div/select</td>
+	<td>label=Excellent</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[112]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='collapse_7']/div/div[2]/div[3]/div/select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[2]/div[3]/div/select</td>
+	<td>label=Excellent</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[113]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='collapse_7']/div/div[2]/div[4]/div/select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[2]/div[4]/div/select</td>
+	<td>label=No</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[3]/div[2]/div/select</td>
+	<td>label=No</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[3]/div[3]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[116]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[3]/div[2]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[3]/div[4]/div/select</td>
+	<td>label=Three to six months ago (excluding six months exactly)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='1'])[118]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[4]/div/div[2]/div/div/div[2]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[118]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[4]/div/div[2]/div/div/div[4]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[4]/div/div[2]/div/div[2]/div/div/select</td>
+	<td>label=YES</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[4]/div/div[2]/div/div[2]/div[2]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[4]/div/div[2]/div[2]/div/div[2]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[4]/div/div[2]/div[2]/div/div[4]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[4]/div/div[2]/div[6]/div/div[3]/div/select</td>
+	<td>label=Alcohol Abuse</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='1'])[155]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[4]/div/div[2]/div[6]/div/div[4]/div/select</td>
+	<td>label=No</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[5]/div/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[291]</td>
+	<td>2010</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sizzle-1491213415354']/div/table/tbody/tr[4]/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[6]/div/div[2]/div/div[3]/div/select</td>
+	<td>label=Aransas</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='3'])[82]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[6]/div/div[2]/div/div[4]/div/select</td>
+	<td>label=California</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[6]/div/div[2]/div[3]/div/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@type='text'])[295]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[295]</td>
+	<td>43</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_7']/div/div[6]/div/div[2]/div[4]/div/div/select</td>
+	<td>label=Available</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='1'])[166]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@type='text'])[300]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[300]</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_8']/div/div[2]/div/div/select</td>
+	<td>label=Attending school irregularly</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='1'])[168]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='collapse_8']/div/div[2]/div[2]/div/select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_8']/div/div[2]/div[2]/div/select</td>
+	<td>label=Some college</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='7'])[17]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_8']/div/div[2]/div[3]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_8']/div/div[2]/div[4]/div/select</td>
+	<td>label=Full Time</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[170]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='sizzle-1491213415354']/div/table/tbody/tr[4]/td[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_9']/div/div[2]/div/div[2]/div/div[2]/div/select</td>
+	<td>label=YES</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[172]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_9']/div/div[3]/div/div[2]/div/div/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_9']/div/div[3]/div/div[2]/div/div[2]/div/select</td>
+	<td>label=Less than 1 year</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[175]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='collapse_9']/div/div[4]/div/div[2]/div/div/div/select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_9']/div/div[4]/div/div[2]/div/div/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@type='text'])[311]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[311]</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_9']/div/div[4]/div/div[2]/div/div[2]/div/select</td>
+	<td>label=1 to 2 years</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.k-item.k-state-hover</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_9']/div/div[6]/div/div[2]/div/div/div/select</td>
+	<td>label=Residential Project: FYSB Transitional Living Project</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='15'])[10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_9']/div/div[7]/div/div[2]/div/div/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//option[@value='0'])[180]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_9']/div/div[7]/div/div[2]/div/div[2]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_9']/div/div[7]/div/div[2]/div/div[3]/div/select</td>
+	<td>label=1 to 3 times</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_9']/div/div[7]/div/div[2]/div/div[4]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_9']/div/div[7]/div/div[2]/div[2]/div/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_9']/div/div[8]/div/div[2]/div/div/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_9']/div/div[8]/div/div[2]/div/div[2]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='collapse_9']/div/div[8]/div/div[2]/div/div[2]/div/select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_9']/div/div[8]/div/div[2]/div/div[3]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_9']/div/div[8]/div/div[2]/div/div[4]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_10']/div/div[2]/div[2]/div/select</td>
+	<td>label=YES</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_10']/div/div[2]/div[4]/div/select</td>
+	<td>label=Yes</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>//div[@id='collapse_11']/div/div[2]/div/div/select</td>
+	<td>label=Less than 30%</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//input[@type='text'])[332]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[332]</td>
+	<td>123412</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[31]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[31]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=toolbox-dock-window</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[31]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[31]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectFrame</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=toolbox-tab-webconsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>LOCATOR_DETECTION_FAILED</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=toolbox-panel-iframe-webconsole</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>LOCATOR_DETECTION_FAILED</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[31]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=quick_report_3</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
